@@ -70,6 +70,7 @@
             this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel23 = new MetroFramework.Controls.MetroLabel();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -480,9 +481,9 @@
             this.groupBox3.Controls.Add(this.metroLabel14);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox3.Location = new System.Drawing.Point(23, 531);
+            this.groupBox3.Location = new System.Drawing.Point(699, 126);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(655, 132);
+            this.groupBox3.Size = new System.Drawing.Size(425, 141);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Current System Information";
@@ -540,17 +541,17 @@
             this.metroLabel18.AutoSize = true;
             this.metroLabel18.Location = new System.Drawing.Point(15, 106);
             this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(113, 19);
+            this.metroLabel18.Size = new System.Drawing.Size(79, 19);
             this.metroLabel18.Style = MetroFramework.MetroColorStyle.White;
             this.metroLabel18.TabIndex = 29;
-            this.metroLabel18.Text = "System Page Size:";
+            this.metroLabel18.Text = "Paging Size:";
             this.metroLabel18.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel18.UseStyleColors = true;
             // 
             // metroLabel19
             // 
             this.metroLabel19.AutoSize = true;
-            this.metroLabel19.Location = new System.Drawing.Point(144, 18);
+            this.metroLabel19.Location = new System.Drawing.Point(109, 19);
             this.metroLabel19.Name = "metroLabel19";
             this.metroLabel19.Size = new System.Drawing.Size(15, 19);
             this.metroLabel19.Style = MetroFramework.MetroColorStyle.White;
@@ -563,7 +564,7 @@
             // metroLabel20
             // 
             this.metroLabel20.AutoSize = true;
-            this.metroLabel20.Location = new System.Drawing.Point(144, 40);
+            this.metroLabel20.Location = new System.Drawing.Point(109, 41);
             this.metroLabel20.Name = "metroLabel20";
             this.metroLabel20.Size = new System.Drawing.Size(15, 19);
             this.metroLabel20.Style = MetroFramework.MetroColorStyle.White;
@@ -575,7 +576,7 @@
             // metroLabel21
             // 
             this.metroLabel21.AutoSize = true;
-            this.metroLabel21.Location = new System.Drawing.Point(144, 62);
+            this.metroLabel21.Location = new System.Drawing.Point(109, 63);
             this.metroLabel21.Name = "metroLabel21";
             this.metroLabel21.Size = new System.Drawing.Size(15, 19);
             this.metroLabel21.Style = MetroFramework.MetroColorStyle.White;
@@ -587,7 +588,7 @@
             // metroLabel22
             // 
             this.metroLabel22.AutoSize = true;
-            this.metroLabel22.Location = new System.Drawing.Point(144, 84);
+            this.metroLabel22.Location = new System.Drawing.Point(109, 85);
             this.metroLabel22.Name = "metroLabel22";
             this.metroLabel22.Size = new System.Drawing.Size(15, 19);
             this.metroLabel22.Style = MetroFramework.MetroColorStyle.White;
@@ -599,7 +600,7 @@
             // metroLabel23
             // 
             this.metroLabel23.AutoSize = true;
-            this.metroLabel23.Location = new System.Drawing.Point(144, 106);
+            this.metroLabel23.Location = new System.Drawing.Point(109, 107);
             this.metroLabel23.Name = "metroLabel23";
             this.metroLabel23.Size = new System.Drawing.Size(15, 19);
             this.metroLabel23.Style = MetroFramework.MetroColorStyle.White;
@@ -608,11 +609,21 @@
             this.metroLabel23.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel23.UseStyleColors = true;
             // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(373, 71);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(305, 29);
+            this.metroButton2.TabIndex = 25;
+            this.metroButton2.Text = "Create A System Restore Point";
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 686);
+            this.ClientSize = new System.Drawing.Size(1147, 686);
+            this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.metroComboBox1);
@@ -678,6 +689,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel21;
         private MetroFramework.Controls.MetroLabel metroLabel20;
         private MetroFramework.Controls.MetroLabel metroLabel19;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }
 

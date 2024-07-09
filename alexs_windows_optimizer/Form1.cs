@@ -27,7 +27,7 @@ namespace alexs_windows_optimizer
                 this.pcInfo = new string[5];
                 this.pcInfo[0] = Environment.UserDomainName;
                 this.pcInfo[1] = grabDeviceInfo("Win32_Processor", "Name");
-                this.pcInfo[2] = grabDeviceInfo("Win32_VideoController", "Description");
+                this.pcInfo[2] = grabDeviceInfo("Win32_VideoController", "Name");
                 this.pcInfo[3] = Environment.OSVersion + (Environment.Is64BitOperatingSystem == true ? " (64-Bit OS)" : " (32-Bit OS)");
                 this.pcInfo[4] = Convert.ToString(Environment.SystemPageSize);
             }
@@ -70,7 +70,11 @@ namespace alexs_windows_optimizer
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            DialogResult msg = MessageBox.Show("These changes can impact your computer system!\nWould you like to proceed?", "Warning", MessageBoxButtons.YesNo);
+            if (msg == DialogResult.Yes)
+            {
 
+            }
         }
 
         private void metroLabel19_Click(object sender, EventArgs e)
@@ -85,6 +89,37 @@ namespace alexs_windows_optimizer
             metroLabel21.Text = r3;
             metroLabel22.Text = r4;
             metroLabel23.Text = r5;
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("Are you sure you want to create a system restore point?", "Confirm Restore Point", MessageBoxButtons.YesNo);
+            if(msg == DialogResult.Yes)
+            {
+                try
+                {
+                    ManagementClass mngmt = new ManagementClass("\\\\.\\root\\default:SystemRestore");
+                    ManagementBaseObject obj = mngmt.GetMethodParameters("CreateRestorePoint");
+                    obj["Description"] = "AWO_RestorePoints_" + Convert.ToString(DateTime.Now);
+                    obj["RestorePointType"] = 12; //Settings
+                    obj["EventType"] = 100; //Changes to System
+
+                    ManagementBaseObject createRestore = mngmt.InvokeMethod("CreateRestorePoint", obj, null);
+                    if (Convert.ToInt16(createRestore.Properties["ReturnValue"].Value) != 0)
+                    {
+                        MessageBox.Show("Unable to create a system restore point!\nPlease try again or create one manually!", "Error!", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("System restore point created successfully!", "Success!", MessageBoxButtons.OK);
+                    }
+                }
+                catch(ManagementException ex)
+                {
+                    MessageBox.Show("Exception Occured!\nPlease try again or create a restore point manually!", "Error!", MessageBoxButtons.OK);
+                }
+            }
+
         }
     }
 }
