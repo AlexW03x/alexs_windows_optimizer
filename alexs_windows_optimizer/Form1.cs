@@ -12,6 +12,8 @@ using MetroFramework.Forms;
 using MetroFramework;
 using System.Management;
 using System.Security.Cryptography;
+using Microsoft.Win32;
+using System.Security.AccessControl;
 
 namespace alexs_windows_optimizer
 { 
@@ -54,13 +56,51 @@ namespace alexs_windows_optimizer
 
                 return endValue;
             }
+
+            public void windowsGameMode(bool toggle)
+            {
+                string path = @"Software\Microsoft\GameBar";
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true))
+                {
+                    if(key == null)
+                    {
+                        MessageBox.Show("Game Mode registry key doesn't exist or not found!", "Error!", MessageBoxButtons.OK);
+                    }
+                    key.SetValue("AllowAutoGameMode", toggle == true ? 1 : 0, RegistryValueKind.DWord);
+                    key.SetValue("AutoGameModeEnabled", toggle == true ? 1 : 0, RegistryValueKind.DWord);
+                }
+            }
+
+            public int returnCurrentUserKeyValue(string path, string name)
+            {
+                int result = 0;
+                try
+                {
+                    using (RegistryKey key = Registry.CurrentUser.OpenSubKey(path))
+                    {
+                        if(key != null)
+                        {
+                            if(key.GetValue(name) != null)
+                            {
+                                result = 1;
+                            }
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+
+                }
+                return result;
+            }
         }
 
+        public Optimizer o = new Optimizer();
         public Form1()
         {
             InitializeComponent();
-            Optimizer o = new Optimizer();
             updatePCLabels(o.pcInfo[0], o.pcInfo[1], o.pcInfo[2], o.pcInfo[3], o.pcInfo[4]);
+            metroToggle1.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\GameBar", "AllowAutoGameMode") == 1 && o.returnCurrentUserKeyValue(@"Software\Microsoft\GameBar", "AutoGameModeEnabled") == 1 ? true : false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -73,7 +113,10 @@ namespace alexs_windows_optimizer
             DialogResult msg = MessageBox.Show("These changes can impact your computer system!\nWould you like to proceed?", "Warning", MessageBoxButtons.YesNo);
             if (msg == DialogResult.Yes)
             {
-
+                if(metroToggle1.Checked == true)
+                {
+                    o.windowsGameMode(true);
+                }
             }
         }
 
@@ -119,6 +162,11 @@ namespace alexs_windows_optimizer
                     MessageBox.Show("Exception Occured!\nPlease try again or create a restore point manually!", "Error!", MessageBoxButtons.OK);
                 }
             }
+
+        }
+
+        private void metroToggle1_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }
