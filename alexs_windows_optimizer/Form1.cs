@@ -71,6 +71,37 @@ namespace alexs_windows_optimizer
                 }
             }
 
+            public void gameBar(bool toggle)
+            {
+                setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\GameDVR", "AllowGameDVR", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\GameDVR", "AppCaptureEnabled", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                setRegisterCU(@"System\GameConfigStore", "GameDVR_Enabled", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void setRegisterCU(string path, string name, int value, RegistryValueKind type) //setting current user registry
+            {
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true))
+                {
+                    if(key == null)
+                    {
+                        MessageBox.Show("Registry key or path doesn't exist or error when finding!", "Error!", MessageBoxButtons.OK);
+                    }
+                    key.SetValue(name, value, type);
+                }
+            }
+
+            public void setRegisterLM(string path, string name, int value, RegistryValueKind type) //setting local machine user registry
+            {
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(path, true))
+                {
+                    if(key == null)
+                    {
+                        MessageBox.Show("Registry key or path doesn't exist or error when finding!", "Error!", MessageBoxButtons.OK);
+                    }
+                    key.SetValue(name, value, type);
+                }
+            }
+
             public int returnCurrentUserKeyValue(string path, string name)
             {
                 int result = 0;
@@ -82,7 +113,7 @@ namespace alexs_windows_optimizer
                         {
                             if(key.GetValue(name) != null)
                             {
-                                result = 1;
+                                result = Convert.ToInt16(key.GetValue(name).ToString()); //turn object to string to get value then convert to int
                             }
                         }
                     }
@@ -91,6 +122,31 @@ namespace alexs_windows_optimizer
                 {
 
                 }
+                //MessageBox.Show(result.ToString()); debug reg values
+                return result;
+            }
+
+            public int returnLocalKeyValue(string path, string name)
+            {
+                int result = 0;
+                try
+                {
+                    using (RegistryKey key = Registry.LocalMachine.OpenSubKey(path))
+                    {
+                        if(key != null)
+                        {
+                            if(key.GetValue(name) != null)
+                            {
+                                result = Convert.ToInt16(key.GetValue(name).ToString());
+                            }
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+
+                }
+                //MessageBox.Show(result.ToString());
                 return result;
             }
         }
@@ -100,7 +156,11 @@ namespace alexs_windows_optimizer
         {
             InitializeComponent();
             updatePCLabels(o.pcInfo[0], o.pcInfo[1], o.pcInfo[2], o.pcInfo[3], o.pcInfo[4]);
-            metroToggle1.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\GameBar", "AllowAutoGameMode") == 1 && o.returnCurrentUserKeyValue(@"Software\Microsoft\GameBar", "AutoGameModeEnabled") == 1 ? true : false;
+            metroToggle1.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\GameBar", "AllowAutoGameMode") == 1 && 
+                o.returnCurrentUserKeyValue(@"Software\Microsoft\GameBar", "AutoGameModeEnabled") == 1 ? true : false;
+            metroToggle2.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\GameDVR", "AllowGameDVR") == 0 &&
+                o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\GameDVR", "AppCatureEnabled") == 0 &&
+                o.returnCurrentUserKeyValue(@"System\GameConfigStore", "GameDVR_Enabled") == 0 ? true : false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -113,10 +173,8 @@ namespace alexs_windows_optimizer
             DialogResult msg = MessageBox.Show("These changes can impact your computer system!\nWould you like to proceed?", "Warning", MessageBoxButtons.YesNo);
             if (msg == DialogResult.Yes)
             {
-                if(metroToggle1.Checked == true)
-                {
-                    o.windowsGameMode(true);
-                }
+                o.windowsGameMode(metroToggle1.Checked);
+                o.gameBar(metroToggle2.Checked);
             }
         }
 
@@ -166,6 +224,11 @@ namespace alexs_windows_optimizer
         }
 
         private void metroToggle1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle2_CheckedChanged(object sender, EventArgs e)
         {
 
         }

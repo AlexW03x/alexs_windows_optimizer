@@ -294,6 +294,7 @@
             this.metroToggle2.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle2.UseStyleColors = true;
             this.metroToggle2.UseVisualStyleBackColor = true;
+            this.metroToggle2.CheckedChanged += new System.EventHandler(this.metroToggle2_CheckedChanged);
             // 
             // metroToggle1
             // 
