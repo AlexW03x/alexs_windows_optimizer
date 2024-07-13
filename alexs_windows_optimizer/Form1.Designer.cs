@@ -255,6 +255,7 @@
             this.metroToggle5.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle5.UseStyleColors = true;
             this.metroToggle5.UseVisualStyleBackColor = true;
+            this.metroToggle5.CheckedChanged += new System.EventHandler(this.metroToggle5_CheckedChanged);
             // 
             // metroToggle4
             // 
@@ -268,6 +269,7 @@
             this.metroToggle4.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle4.UseStyleColors = true;
             this.metroToggle4.UseVisualStyleBackColor = true;
+            this.metroToggle4.CheckedChanged += new System.EventHandler(this.metroToggle4_CheckedChanged);
             // 
             // metroToggle3
             // 
@@ -281,6 +283,7 @@
             this.metroToggle3.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle3.UseStyleColors = true;
             this.metroToggle3.UseVisualStyleBackColor = true;
+            this.metroToggle3.CheckedChanged += new System.EventHandler(this.metroToggle3_CheckedChanged);
             // 
             // metroToggle2
             // 

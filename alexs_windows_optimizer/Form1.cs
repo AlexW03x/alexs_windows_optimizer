@@ -14,6 +14,8 @@ using System.Management;
 using System.Security.Cryptography;
 using Microsoft.Win32;
 using System.Security.AccessControl;
+using System.Diagnostics;
+using System.IO;
 
 namespace alexs_windows_optimizer
 { 
@@ -23,6 +25,8 @@ namespace alexs_windows_optimizer
         public class Optimizer
         {
             public string[] pcInfo; //Name, CPU, GPU, OS, Paging Size
+            public string serviceLocation = @"SYSTEM\CurrentControlSet\Services\";
+
 
             public Optimizer() //Grabs system information first
             {
@@ -78,13 +82,71 @@ namespace alexs_windows_optimizer
                 setRegisterCU(@"System\GameConfigStore", "GameDVR_Enabled", toggle == true ? 0 : 1, RegistryValueKind.DWord);
             }
 
+            public void xboxLive(bool toggle)
+            {
+                setRegisterLM(serviceLocation + "XblAuthManager", "Start", toggle == true ? 4 : 3, RegistryValueKind.DWord);
+                setRegisterLM(serviceLocation + "XblGameSave", "Start", toggle == true ? 4 : 3, RegistryValueKind.DWord);
+                setRegisterLM(serviceLocation + "xboxgip", "Start", toggle == true ? 4 : 3, RegistryValueKind.DWord);
+                setRegisterLM(serviceLocation + "XboxGipSvc", "Start", toggle == true ? 4 : 3, RegistryValueKind.DWord);
+                setRegisterLM(serviceLocation + "XboxNetApiSvc", "Start", toggle == true ? 4 : 3, RegistryValueKind.DWord);
+            }
+
+            public void eventTimer(bool toggle)
+            {
+                try
+                {
+                    string commandPromptPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Windows),
+                        Environment.Is64BitOperatingSystem && !Environment.Is64BitProcess ?
+                        @"Sysnative\cmd.exe" : @"System32\cmd.exe");
+                    string argument = toggle == true ? "bcdedit /deletevalue useplatformclock" : "bcdedit /set useplatformclock true";
+                    Process cmd = new Process();
+                    ProcessStartInfo info = new ProcessStartInfo()
+                    {
+                        FileName = commandPromptPath,
+                        RedirectStandardError = true,
+                        RedirectStandardOutput = true,
+                        CreateNoWindow = true,
+                        UseShellExecute = false,
+                        Arguments = "/c " + argument,
+                        Verb = "runas"
+                    };
+
+                    cmd.StartInfo = info;
+                    cmd.Start();
+
+                    /*string output = cmd.StandardOutput.ReadToEnd();
+                    string errors = cmd.StandardError.ReadToEnd();
+                    cmd.WaitForExit();
+                    MessageBox.Show($"Output: {output}\n\nError: {errors}", "Output", MessageBoxButtons.OK);   DEBUG COMMANDLINE   */
+
+                    using (RegistryKey registryKey = Registry.CurrentUser.CreateSubKey(@"Software\AWO_Optimizer")) //so that the toggle can be saved for next launch
+                    {
+                        if(registryKey != null)
+                        {
+                            
+                        }
+                        registryKey.SetValue("eventTimerOn", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error when disabling/enabling High Precision Event Timer!", "Error!", MessageBoxButtons.OK);
+                }
+            }
+
+            public void coreIsolation(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity", "Enabled", 
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
             public void setRegisterCU(string path, string name, int value, RegistryValueKind type) //setting current user registry
             {
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true))
                 {
                     if(key == null)
                     {
-                        MessageBox.Show("Registry key or path doesn't exist or error when finding!", "Error!", MessageBoxButtons.OK);
+                        MessageBox.Show($"{path}+/{name} doesn't exist or could not be found!\n\nYour system may not support this feature!", "Error!", MessageBoxButtons.OK);
                     }
                     key.SetValue(name, value, type);
                 }
@@ -96,7 +158,7 @@ namespace alexs_windows_optimizer
                 {
                     if(key == null)
                     {
-                        MessageBox.Show("Registry key or path doesn't exist or error when finding!", "Error!", MessageBoxButtons.OK);
+                        MessageBox.Show($"{path}+/{name} doesn't exist or could not be found!\n\nYour system may not support this feature!", "Error!", MessageBoxButtons.OK);
                     }
                     key.SetValue(name, value, type);
                 }
@@ -161,6 +223,13 @@ namespace alexs_windows_optimizer
             metroToggle2.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\GameDVR", "AllowGameDVR") == 0 &&
                 o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\GameDVR", "AppCatureEnabled") == 0 &&
                 o.returnCurrentUserKeyValue(@"System\GameConfigStore", "GameDVR_Enabled") == 0 ? true : false;
+            metroToggle3.Checked = o.returnLocalKeyValue(o.serviceLocation + "XblAuthManager", "Start") == 4 &&
+                o.returnLocalKeyValue(o.serviceLocation + "XblGameSave", "Start") == 4 &&
+                o.returnLocalKeyValue(o.serviceLocation + "xboxgip", "Start") == 4 &&
+                o.returnLocalKeyValue(o.serviceLocation + "XboxGipSvc", "Start") == 4 &&
+                o.returnLocalKeyValue(o.serviceLocation + "XboxNetApiSvc", "Start") == 4 ? true : false;
+            metroToggle4.Checked = o.returnCurrentUserKeyValue(@"Software\AWO_Optimizer", "eventTimerOn") == 0 ? true : false;
+            metroToggle5.Checked = o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity", "Enabled") == 0 ? true : false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -175,6 +244,8 @@ namespace alexs_windows_optimizer
             {
                 o.windowsGameMode(metroToggle1.Checked);
                 o.gameBar(metroToggle2.Checked);
+                o.xboxLive(metroToggle3.Checked);
+                o.eventTimer(metroToggle4.Checked);
             }
         }
 
@@ -229,6 +300,21 @@ namespace alexs_windows_optimizer
         }
 
         private void metroToggle2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle5_CheckedChanged(object sender, EventArgs e)
         {
 
         }
