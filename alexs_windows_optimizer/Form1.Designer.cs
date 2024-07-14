@@ -242,6 +242,7 @@
             this.metroToggle6.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle6.UseStyleColors = true;
             this.metroToggle6.UseVisualStyleBackColor = true;
+            this.metroToggle6.CheckedChanged += new System.EventHandler(this.metroToggle6_CheckedChanged);
             // 
             // metroToggle5
             // 
