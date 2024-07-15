@@ -238,7 +238,47 @@ namespace alexs_windows_optimizer
                 }
             }
 
-            public void setRegisterCU(string path, string name, int value, RegistryValueKind type) //setting current user registry
+            public void performanceVisuals(bool toggle)
+            {
+                //0 = Let Windows Choose, 1 = Best Appearance, 2 = Best Performance, 3 = Custom
+                setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects", "VisualFXSetting", toggle == true ? 3 : 1, RegistryValueKind.DWord);
+
+                //items to change - utilizing my visual effect settings as slightly improved windows performance
+                setRegisterCU(@"Control Panel\Desktop\WindowMetrics", "MinAnimate", toggle == true ? "0" : "1", RegistryValueKind.String);
+                setRegisterCU(@"Control Panel\Desktop", "DragFullWindows", toggle == true ? "1" : "1", RegistryValueKind.String);
+                setRegisterCU(@"Control Panel\Desktop", "FontSmoothing", toggle == true ? "2" : "2", RegistryValueKind.String);
+                string[] advanced =
+                {
+                    "ListviewAlphaSelect",
+                    "TaskbarAnimations",
+                    "ListviewShadow",
+                    "IconsOnly"
+                };
+                foreach(string name in advanced)
+                {
+                    setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced", name, toggle == true ? 0 :
+                        toggle == false && name != "IconsOnly" ? 1 : 0, RegistryValueKind.DWord);
+                }
+                setRegisterCU(@"Software\Microsoft\Windows\DWM", "EnableAeroPeek", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                setRegisterCU(@"Software\Microsoft\Windows\DWM", "AlwaysHibernateThumbnails", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                setRegisterCU(@"Software\Microsoft\Windows\DWM", "UseDropShadow", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                setRegisterCU(@"Control Panel\Mouse", "MouseHoverWidth", toggle == true ? "0" : "4", RegistryValueKind.String);
+                setRegisterCU(@"Control Panel\Desktop", "UserPreferencesMask", toggle == true ?
+                    new byte[] { 0x90, 0x12, 0x03, 0x80, 0x10, 0x00, 0x00, 0x00 } : 
+                    new byte[] { 0x9e, 0x3e, 0x07, 0x80, 0x12, 0x00, 0x00, 0x00 }, RegistryValueKind.Binary);
+            }
+
+            public void gpuScheduling(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers", "HwSchMode", toggle == true ? 2 : 1, RegistryValueKind.DWord);
+            }
+
+            public void notifications(bool toggle)
+            {
+                setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications", "ToastEnabled", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void setRegisterCU(string path, string name, object value, RegistryValueKind type) //setting current user registry
             {
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true))
                 {
@@ -250,7 +290,8 @@ namespace alexs_windows_optimizer
                 }
             }
 
-            public void setRegisterLM(string path, string name, int value, RegistryValueKind type) //setting local machine user registry
+
+            public void setRegisterLM(string path, string name, object value, RegistryValueKind type) //setting local machine user registry
             {
                 using (RegistryKey key = Registry.LocalMachine.OpenSubKey(path, true))
                 {
@@ -334,6 +375,9 @@ namespace alexs_windows_optimizer
             metroToggle4.Checked = o.returnCurrentUserKeyValue(@"Software\AWO_Optimizer", "eventTimerOn") == 0 ? true : false;
             metroToggle5.Checked = o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity", "Enabled") == 0 ? true : false;
             metroToggle6.Checked = (o.executeCommandWithOutput(" powercfg /getactivescheme").ToString().Contains("Ultimate Performance")) ? true : false;
+            metroToggle7.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects", "VisualFXSetting") == 3 ? true : false;
+            metroToggle8.Checked = o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers", "HwSchMode") == 2 ? true : false;
+            metroToggle9.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications", "ToastEnabled") == 0 ? true : false;
             
         }
 
@@ -353,6 +397,9 @@ namespace alexs_windows_optimizer
                 o.eventTimer(metroToggle4.Checked);
                 o.coreIsolation(metroToggle5.Checked);
                 o.ultimatePower(metroToggle6.Checked);
+                o.performanceVisuals(metroToggle7.Checked);
+                o.gpuScheduling(metroToggle8.Checked);
+                o.notifications(metroToggle9.Checked);
             }
         }
 
@@ -427,6 +474,21 @@ namespace alexs_windows_optimizer
         }
 
         private void metroToggle6_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle7_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle8_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle9_CheckedChanged(object sender, EventArgs e)
         {
 
         }
