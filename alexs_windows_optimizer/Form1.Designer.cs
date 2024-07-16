@@ -71,8 +71,52 @@
             this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel24 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel25 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel26 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel27 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel28 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel29 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel30 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel31 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel32 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel33 = new MetroFramework.Controls.MetroLabel();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel34 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel35 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel36 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel37 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel38 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel39 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel40 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel41 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel42 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel43 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel44 = new MetroFramework.Controls.MetroLabel();
+            this.metroToggle13 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle14 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle15 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle16 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle17 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle18 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle19 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle20 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle21 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle22 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle23 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle24 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle25 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle26 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle27 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle28 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle29 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle30 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle31 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle32 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle33 = new MetroFramework.Controls.MetroToggle();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +126,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.metroToggle17);
+            this.groupBox1.Controls.Add(this.metroToggle16);
+            this.groupBox1.Controls.Add(this.metroToggle15);
+            this.groupBox1.Controls.Add(this.metroToggle14);
+            this.groupBox1.Controls.Add(this.metroToggle13);
+            this.groupBox1.Controls.Add(this.metroLabel44);
+            this.groupBox1.Controls.Add(this.metroLabel43);
+            this.groupBox1.Controls.Add(this.metroLabel42);
+            this.groupBox1.Controls.Add(this.metroLabel41);
+            this.groupBox1.Controls.Add(this.metroLabel40);
             this.groupBox1.Controls.Add(this.metroToggle12);
             this.groupBox1.Controls.Add(this.metroToggle11);
             this.groupBox1.Controls.Add(this.metroToggle10);
@@ -111,7 +165,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox1.Location = new System.Drawing.Point(23, 126);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(329, 381);
+            this.groupBox1.Size = new System.Drawing.Size(329, 496);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gaming Optimizations [May Increase FPS]";
@@ -128,6 +182,7 @@
             this.metroToggle12.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle12.UseStyleColors = true;
             this.metroToggle12.UseVisualStyleBackColor = true;
+            this.metroToggle12.CheckedChanged += new System.EventHandler(this.metroToggle12_CheckedChanged);
             // 
             // metroToggle11
             // 
@@ -141,6 +196,7 @@
             this.metroToggle11.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle11.UseStyleColors = true;
             this.metroToggle11.UseVisualStyleBackColor = true;
+            this.metroToggle11.CheckedChanged += new System.EventHandler(this.metroToggle11_CheckedChanged);
             // 
             // metroToggle10
             // 
@@ -154,16 +210,17 @@
             this.metroToggle10.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle10.UseStyleColors = true;
             this.metroToggle10.UseVisualStyleBackColor = true;
+            this.metroToggle10.CheckedChanged += new System.EventHandler(this.metroToggle10_CheckedChanged);
             // 
             // metroLabel13
             // 
             this.metroLabel13.AutoSize = true;
             this.metroLabel13.Location = new System.Drawing.Point(15, 294);
             this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(158, 19);
+            this.metroLabel13.Size = new System.Drawing.Size(157, 19);
             this.metroLabel13.Style = MetroFramework.MetroColorStyle.White;
             this.metroLabel13.TabIndex = 21;
-            this.metroLabel13.Text = "Enable Standard Parking?";
+            this.metroLabel13.Text = "Disable Driver Searching?";
             this.metroLabel13.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroLabel13.UseStyleColors = true;
             // 
@@ -427,7 +484,7 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(77, 331);
+            this.metroButton1.Location = new System.Drawing.Point(74, 448);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(169, 31);
             this.metroButton1.TabIndex = 0;
@@ -467,11 +524,44 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.metroToggle33);
+            this.groupBox2.Controls.Add(this.metroToggle32);
+            this.groupBox2.Controls.Add(this.metroToggle31);
+            this.groupBox2.Controls.Add(this.metroToggle30);
+            this.groupBox2.Controls.Add(this.metroToggle29);
+            this.groupBox2.Controls.Add(this.metroToggle28);
+            this.groupBox2.Controls.Add(this.metroToggle27);
+            this.groupBox2.Controls.Add(this.metroToggle26);
+            this.groupBox2.Controls.Add(this.metroToggle25);
+            this.groupBox2.Controls.Add(this.metroToggle24);
+            this.groupBox2.Controls.Add(this.metroToggle23);
+            this.groupBox2.Controls.Add(this.metroToggle22);
+            this.groupBox2.Controls.Add(this.metroToggle21);
+            this.groupBox2.Controls.Add(this.metroToggle20);
+            this.groupBox2.Controls.Add(this.metroToggle19);
+            this.groupBox2.Controls.Add(this.metroToggle18);
+            this.groupBox2.Controls.Add(this.metroLabel39);
+            this.groupBox2.Controls.Add(this.metroLabel38);
+            this.groupBox2.Controls.Add(this.metroLabel37);
+            this.groupBox2.Controls.Add(this.metroLabel36);
+            this.groupBox2.Controls.Add(this.metroLabel35);
+            this.groupBox2.Controls.Add(this.metroLabel34);
+            this.groupBox2.Controls.Add(this.metroButton3);
+            this.groupBox2.Controls.Add(this.metroLabel33);
+            this.groupBox2.Controls.Add(this.metroLabel32);
+            this.groupBox2.Controls.Add(this.metroLabel31);
+            this.groupBox2.Controls.Add(this.metroLabel30);
+            this.groupBox2.Controls.Add(this.metroLabel29);
+            this.groupBox2.Controls.Add(this.metroLabel28);
+            this.groupBox2.Controls.Add(this.metroLabel27);
+            this.groupBox2.Controls.Add(this.metroLabel26);
+            this.groupBox2.Controls.Add(this.metroLabel25);
+            this.groupBox2.Controls.Add(this.metroLabel24);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox2.Location = new System.Drawing.Point(373, 126);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(305, 381);
+            this.groupBox2.Size = new System.Drawing.Size(305, 496);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Network Optimisation";
@@ -627,6 +717,539 @@
             this.metroButton2.Text = "Create A System Restore Point";
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
+            // metroLabel24
+            // 
+            this.metroLabel24.AutoSize = true;
+            this.metroLabel24.Location = new System.Drawing.Point(18, 25);
+            this.metroLabel24.Name = "metroLabel24";
+            this.metroLabel24.Size = new System.Drawing.Size(175, 19);
+            this.metroLabel24.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel24.TabIndex = 25;
+            this.metroLabel24.Text = "Normalise TCP Auto Tuning?";
+            this.metroLabel24.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel24.UseStyleColors = true;
+            // 
+            // metroLabel25
+            // 
+            this.metroLabel25.AutoSize = true;
+            this.metroLabel25.Location = new System.Drawing.Point(18, 49);
+            this.metroLabel25.Name = "metroLabel25";
+            this.metroLabel25.Size = new System.Drawing.Size(178, 19);
+            this.metroLabel25.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel25.TabIndex = 26;
+            this.metroLabel25.Text = "Normalise Scaling Heuristics?";
+            this.metroLabel25.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel25.UseStyleColors = true;
+            // 
+            // metroLabel26
+            // 
+            this.metroLabel26.AutoSize = true;
+            this.metroLabel26.Location = new System.Drawing.Point(18, 74);
+            this.metroLabel26.Name = "metroLabel26";
+            this.metroLabel26.Size = new System.Drawing.Size(160, 19);
+            this.metroLabel26.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel26.TabIndex = 27;
+            this.metroLabel26.Text = "Enable CTCP Congestion?";
+            this.metroLabel26.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel26.UseStyleColors = true;
+            // 
+            // metroLabel27
+            // 
+            this.metroLabel27.AutoSize = true;
+            this.metroLabel27.Location = new System.Drawing.Point(18, 98);
+            this.metroLabel27.Name = "metroLabel27";
+            this.metroLabel27.Size = new System.Drawing.Size(134, 19);
+            this.metroLabel27.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel27.TabIndex = 28;
+            this.metroLabel27.Text = "Enable RSS and RSC?";
+            this.metroLabel27.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel27.UseStyleColors = true;
+            // 
+            // metroLabel28
+            // 
+            this.metroLabel28.AutoSize = true;
+            this.metroLabel28.Location = new System.Drawing.Point(18, 122);
+            this.metroLabel28.Name = "metroLabel28";
+            this.metroLabel28.Size = new System.Drawing.Size(143, 19);
+            this.metroLabel28.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel28.TabIndex = 29;
+            this.metroLabel28.Text = "Utilise 64 Time To Live?";
+            this.metroLabel28.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel28.UseStyleColors = true;
+            // 
+            // metroLabel29
+            // 
+            this.metroLabel29.AutoSize = true;
+            this.metroLabel29.Location = new System.Drawing.Point(18, 147);
+            this.metroLabel29.Name = "metroLabel29";
+            this.metroLabel29.Size = new System.Drawing.Size(158, 19);
+            this.metroLabel29.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel29.TabIndex = 30;
+            this.metroLabel29.Text = "Disable ECN Capabilities?";
+            this.metroLabel29.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel29.UseStyleColors = true;
+            // 
+            // metroLabel30
+            // 
+            this.metroLabel30.AutoSize = true;
+            this.metroLabel30.Location = new System.Drawing.Point(18, 173);
+            this.metroLabel30.Name = "metroLabel30";
+            this.metroLabel30.Size = new System.Drawing.Size(187, 19);
+            this.metroLabel30.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel30.TabIndex = 31;
+            this.metroLabel30.Text = "Disable Checksum Offloading?";
+            this.metroLabel30.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel30.UseStyleColors = true;
+            // 
+            // metroLabel31
+            // 
+            this.metroLabel31.AutoSize = true;
+            this.metroLabel31.Location = new System.Drawing.Point(18, 198);
+            this.metroLabel31.Name = "metroLabel31";
+            this.metroLabel31.Size = new System.Drawing.Size(188, 19);
+            this.metroLabel31.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel31.TabIndex = 32;
+            this.metroLabel31.Text = "Disable TCP Chimney Offload?";
+            this.metroLabel31.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel31.UseStyleColors = true;
+            // 
+            // metroLabel32
+            // 
+            this.metroLabel32.AutoSize = true;
+            this.metroLabel32.Location = new System.Drawing.Point(18, 222);
+            this.metroLabel32.Name = "metroLabel32";
+            this.metroLabel32.Size = new System.Drawing.Size(176, 19);
+            this.metroLabel32.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel32.TabIndex = 33;
+            this.metroLabel32.Text = "Disable Large Send Offload?";
+            this.metroLabel32.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel32.UseStyleColors = true;
+            // 
+            // metroLabel33
+            // 
+            this.metroLabel33.AutoSize = true;
+            this.metroLabel33.Location = new System.Drawing.Point(18, 246);
+            this.metroLabel33.Name = "metroLabel33";
+            this.metroLabel33.Size = new System.Drawing.Size(158, 19);
+            this.metroLabel33.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel33.TabIndex = 34;
+            this.metroLabel33.Text = "Disable TCP Timestamps?";
+            this.metroLabel33.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel33.UseStyleColors = true;
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.Location = new System.Drawing.Point(72, 448);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(169, 31);
+            this.metroButton3.TabIndex = 25;
+            this.metroButton3.Text = "Apply Optimizations";
+            // 
+            // metroLabel34
+            // 
+            this.metroLabel34.AutoSize = true;
+            this.metroLabel34.Location = new System.Drawing.Point(18, 270);
+            this.metroLabel34.Name = "metroLabel34";
+            this.metroLabel34.Size = new System.Drawing.Size(171, 19);
+            this.metroLabel34.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel34.TabIndex = 35;
+            this.metroLabel34.Text = "Fix Connections Per Server?";
+            this.metroLabel34.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel34.UseStyleColors = true;
+            // 
+            // metroLabel35
+            // 
+            this.metroLabel35.AutoSize = true;
+            this.metroLabel35.Location = new System.Drawing.Point(18, 294);
+            this.metroLabel35.Name = "metroLabel35";
+            this.metroLabel35.Size = new System.Drawing.Size(116, 19);
+            this.metroLabel35.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel35.TabIndex = 36;
+            this.metroLabel35.Text = "Fix Host Priorities?";
+            this.metroLabel35.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel35.UseStyleColors = true;
+            // 
+            // metroLabel36
+            // 
+            this.metroLabel36.AutoSize = true;
+            this.metroLabel36.Location = new System.Drawing.Point(18, 318);
+            this.metroLabel36.Name = "metroLabel36";
+            this.metroLabel36.Size = new System.Drawing.Size(146, 19);
+            this.metroLabel36.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel36.TabIndex = 37;
+            this.metroLabel36.Text = "Adjust Retransmissions?";
+            this.metroLabel36.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel36.UseStyleColors = true;
+            // 
+            // metroLabel37
+            // 
+            this.metroLabel37.AutoSize = true;
+            this.metroLabel37.Location = new System.Drawing.Point(18, 342);
+            this.metroLabel37.Name = "metroLabel37";
+            this.metroLabel37.Size = new System.Drawing.Size(175, 19);
+            this.metroLabel37.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel37.TabIndex = 38;
+            this.metroLabel37.Text = "Optimise Quality of Service?";
+            this.metroLabel37.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel37.UseStyleColors = true;
+            // 
+            // metroLabel38
+            // 
+            this.metroLabel38.AutoSize = true;
+            this.metroLabel38.Location = new System.Drawing.Point(18, 367);
+            this.metroLabel38.Name = "metroLabel38";
+            this.metroLabel38.Size = new System.Drawing.Size(160, 19);
+            this.metroLabel38.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel38.TabIndex = 39;
+            this.metroLabel38.Text = "Sort Network Allocations?";
+            this.metroLabel38.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel38.UseStyleColors = true;
+            // 
+            // metroLabel39
+            // 
+            this.metroLabel39.AutoSize = true;
+            this.metroLabel39.Location = new System.Drawing.Point(17, 393);
+            this.metroLabel39.Name = "metroLabel39";
+            this.metroLabel39.Size = new System.Drawing.Size(139, 19);
+            this.metroLabel39.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel39.TabIndex = 40;
+            this.metroLabel39.Text = "Adjust Dynamic Ports?";
+            this.metroLabel39.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel39.UseStyleColors = true;
+            // 
+            // metroLabel40
+            // 
+            this.metroLabel40.AutoSize = true;
+            this.metroLabel40.Location = new System.Drawing.Point(15, 318);
+            this.metroLabel40.Name = "metroLabel40";
+            this.metroLabel40.Size = new System.Drawing.Size(182, 19);
+            this.metroLabel40.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel40.TabIndex = 25;
+            this.metroLabel40.Text = "Optimize Network Throttling?";
+            this.metroLabel40.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel40.UseStyleColors = true;
+            // 
+            // metroLabel41
+            // 
+            this.metroLabel41.AutoSize = true;
+            this.metroLabel41.Location = new System.Drawing.Point(15, 342);
+            this.metroLabel41.Name = "metroLabel41";
+            this.metroLabel41.Size = new System.Drawing.Size(206, 19);
+            this.metroLabel41.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel41.TabIndex = 26;
+            this.metroLabel41.Text = "Optimize System Responsiveness?";
+            this.metroLabel41.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel41.UseStyleColors = true;
+            // 
+            // metroLabel42
+            // 
+            this.metroLabel42.AutoSize = true;
+            this.metroLabel42.Location = new System.Drawing.Point(15, 367);
+            this.metroLabel42.Name = "metroLabel42";
+            this.metroLabel42.Size = new System.Drawing.Size(180, 19);
+            this.metroLabel42.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel42.TabIndex = 27;
+            this.metroLabel42.Text = "Disable Gaming Frequencies?";
+            this.metroLabel42.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel42.UseStyleColors = true;
+            // 
+            // metroLabel43
+            // 
+            this.metroLabel43.AutoSize = true;
+            this.metroLabel43.Location = new System.Drawing.Point(15, 393);
+            this.metroLabel43.Name = "metroLabel43";
+            this.metroLabel43.Size = new System.Drawing.Size(111, 19);
+            this.metroLabel43.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel43.TabIndex = 28;
+            this.metroLabel43.Text = "Enable No Delay?";
+            this.metroLabel43.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel43.UseStyleColors = true;
+            // 
+            // metroLabel44
+            // 
+            this.metroLabel44.AutoSize = true;
+            this.metroLabel44.Location = new System.Drawing.Point(15, 417);
+            this.metroLabel44.Name = "metroLabel44";
+            this.metroLabel44.Size = new System.Drawing.Size(138, 19);
+            this.metroLabel44.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel44.TabIndex = 29;
+            this.metroLabel44.Text = "Disable Gaming Ticks?";
+            this.metroLabel44.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel44.UseStyleColors = true;
+            // 
+            // metroToggle13
+            // 
+            this.metroToggle13.AutoSize = true;
+            this.metroToggle13.Location = new System.Drawing.Point(234, 321);
+            this.metroToggle13.Name = "metroToggle13";
+            this.metroToggle13.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle13.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle13.TabIndex = 30;
+            this.metroToggle13.Text = "Off";
+            this.metroToggle13.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle13.UseStyleColors = true;
+            this.metroToggle13.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle14
+            // 
+            this.metroToggle14.AutoSize = true;
+            this.metroToggle14.Location = new System.Drawing.Point(234, 345);
+            this.metroToggle14.Name = "metroToggle14";
+            this.metroToggle14.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle14.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle14.TabIndex = 31;
+            this.metroToggle14.Text = "Off";
+            this.metroToggle14.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle14.UseStyleColors = true;
+            this.metroToggle14.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle15
+            // 
+            this.metroToggle15.AutoSize = true;
+            this.metroToggle15.Location = new System.Drawing.Point(234, 369);
+            this.metroToggle15.Name = "metroToggle15";
+            this.metroToggle15.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle15.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle15.TabIndex = 32;
+            this.metroToggle15.Text = "Off";
+            this.metroToggle15.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle15.UseStyleColors = true;
+            this.metroToggle15.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle16
+            // 
+            this.metroToggle16.AutoSize = true;
+            this.metroToggle16.Location = new System.Drawing.Point(234, 393);
+            this.metroToggle16.Name = "metroToggle16";
+            this.metroToggle16.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle16.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle16.TabIndex = 33;
+            this.metroToggle16.Text = "Off";
+            this.metroToggle16.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle16.UseStyleColors = true;
+            this.metroToggle16.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle17
+            // 
+            this.metroToggle17.AutoSize = true;
+            this.metroToggle17.Location = new System.Drawing.Point(234, 417);
+            this.metroToggle17.Name = "metroToggle17";
+            this.metroToggle17.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle17.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle17.TabIndex = 34;
+            this.metroToggle17.Text = "Off";
+            this.metroToggle17.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle17.UseStyleColors = true;
+            this.metroToggle17.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle18
+            // 
+            this.metroToggle18.AutoSize = true;
+            this.metroToggle18.Location = new System.Drawing.Point(210, 27);
+            this.metroToggle18.Name = "metroToggle18";
+            this.metroToggle18.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle18.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle18.TabIndex = 35;
+            this.metroToggle18.Text = "Off";
+            this.metroToggle18.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle18.UseStyleColors = true;
+            this.metroToggle18.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle19
+            // 
+            this.metroToggle19.AutoSize = true;
+            this.metroToggle19.Location = new System.Drawing.Point(210, 51);
+            this.metroToggle19.Name = "metroToggle19";
+            this.metroToggle19.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle19.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle19.TabIndex = 41;
+            this.metroToggle19.Text = "Off";
+            this.metroToggle19.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle19.UseStyleColors = true;
+            this.metroToggle19.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle20
+            // 
+            this.metroToggle20.AutoSize = true;
+            this.metroToggle20.Location = new System.Drawing.Point(210, 76);
+            this.metroToggle20.Name = "metroToggle20";
+            this.metroToggle20.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle20.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle20.TabIndex = 42;
+            this.metroToggle20.Text = "Off";
+            this.metroToggle20.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle20.UseStyleColors = true;
+            this.metroToggle20.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle21
+            // 
+            this.metroToggle21.AutoSize = true;
+            this.metroToggle21.Location = new System.Drawing.Point(210, 101);
+            this.metroToggle21.Name = "metroToggle21";
+            this.metroToggle21.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle21.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle21.TabIndex = 43;
+            this.metroToggle21.Text = "Off";
+            this.metroToggle21.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle21.UseStyleColors = true;
+            this.metroToggle21.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle22
+            // 
+            this.metroToggle22.AutoSize = true;
+            this.metroToggle22.Location = new System.Drawing.Point(210, 125);
+            this.metroToggle22.Name = "metroToggle22";
+            this.metroToggle22.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle22.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle22.TabIndex = 44;
+            this.metroToggle22.Text = "Off";
+            this.metroToggle22.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle22.UseStyleColors = true;
+            this.metroToggle22.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle23
+            // 
+            this.metroToggle23.AutoSize = true;
+            this.metroToggle23.Location = new System.Drawing.Point(210, 150);
+            this.metroToggle23.Name = "metroToggle23";
+            this.metroToggle23.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle23.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle23.TabIndex = 36;
+            this.metroToggle23.Text = "Off";
+            this.metroToggle23.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle23.UseStyleColors = true;
+            this.metroToggle23.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle24
+            // 
+            this.metroToggle24.AutoSize = true;
+            this.metroToggle24.Location = new System.Drawing.Point(210, 175);
+            this.metroToggle24.Name = "metroToggle24";
+            this.metroToggle24.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle24.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle24.TabIndex = 36;
+            this.metroToggle24.Text = "Off";
+            this.metroToggle24.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle24.UseStyleColors = true;
+            this.metroToggle24.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle25
+            // 
+            this.metroToggle25.AutoSize = true;
+            this.metroToggle25.Location = new System.Drawing.Point(210, 200);
+            this.metroToggle25.Name = "metroToggle25";
+            this.metroToggle25.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle25.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle25.TabIndex = 36;
+            this.metroToggle25.Text = "Off";
+            this.metroToggle25.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle25.UseStyleColors = true;
+            this.metroToggle25.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle26
+            // 
+            this.metroToggle26.AutoSize = true;
+            this.metroToggle26.Location = new System.Drawing.Point(210, 225);
+            this.metroToggle26.Name = "metroToggle26";
+            this.metroToggle26.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle26.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle26.TabIndex = 36;
+            this.metroToggle26.Text = "Off";
+            this.metroToggle26.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle26.UseStyleColors = true;
+            this.metroToggle26.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle27
+            // 
+            this.metroToggle27.AutoSize = true;
+            this.metroToggle27.Location = new System.Drawing.Point(210, 249);
+            this.metroToggle27.Name = "metroToggle27";
+            this.metroToggle27.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle27.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle27.TabIndex = 36;
+            this.metroToggle27.Text = "Off";
+            this.metroToggle27.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle27.UseStyleColors = true;
+            this.metroToggle27.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle28
+            // 
+            this.metroToggle28.AutoSize = true;
+            this.metroToggle28.Location = new System.Drawing.Point(210, 274);
+            this.metroToggle28.Name = "metroToggle28";
+            this.metroToggle28.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle28.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle28.TabIndex = 36;
+            this.metroToggle28.Text = "Off";
+            this.metroToggle28.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle28.UseStyleColors = true;
+            this.metroToggle28.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle29
+            // 
+            this.metroToggle29.AutoSize = true;
+            this.metroToggle29.Location = new System.Drawing.Point(210, 298);
+            this.metroToggle29.Name = "metroToggle29";
+            this.metroToggle29.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle29.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle29.TabIndex = 36;
+            this.metroToggle29.Text = "Off";
+            this.metroToggle29.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle29.UseStyleColors = true;
+            this.metroToggle29.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle30
+            // 
+            this.metroToggle30.AutoSize = true;
+            this.metroToggle30.Location = new System.Drawing.Point(210, 322);
+            this.metroToggle30.Name = "metroToggle30";
+            this.metroToggle30.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle30.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle30.TabIndex = 36;
+            this.metroToggle30.Text = "Off";
+            this.metroToggle30.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle30.UseStyleColors = true;
+            this.metroToggle30.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle31
+            // 
+            this.metroToggle31.AutoSize = true;
+            this.metroToggle31.Location = new System.Drawing.Point(210, 346);
+            this.metroToggle31.Name = "metroToggle31";
+            this.metroToggle31.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle31.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle31.TabIndex = 36;
+            this.metroToggle31.Text = "Off";
+            this.metroToggle31.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle31.UseStyleColors = true;
+            this.metroToggle31.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle32
+            // 
+            this.metroToggle32.AutoSize = true;
+            this.metroToggle32.Location = new System.Drawing.Point(210, 370);
+            this.metroToggle32.Name = "metroToggle32";
+            this.metroToggle32.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle32.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle32.TabIndex = 36;
+            this.metroToggle32.Text = "Off";
+            this.metroToggle32.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle32.UseStyleColors = true;
+            this.metroToggle32.UseVisualStyleBackColor = true;
+            // 
+            // metroToggle33
+            // 
+            this.metroToggle33.AutoSize = true;
+            this.metroToggle33.Location = new System.Drawing.Point(210, 395);
+            this.metroToggle33.Name = "metroToggle33";
+            this.metroToggle33.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle33.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle33.TabIndex = 45;
+            this.metroToggle33.Text = "Off";
+            this.metroToggle33.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle33.UseStyleColors = true;
+            this.metroToggle33.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -648,6 +1271,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -699,6 +1324,49 @@
         private MetroFramework.Controls.MetroLabel metroLabel20;
         private MetroFramework.Controls.MetroLabel metroLabel19;
         private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroLabel metroLabel24;
+        private MetroFramework.Controls.MetroLabel metroLabel31;
+        private MetroFramework.Controls.MetroLabel metroLabel30;
+        private MetroFramework.Controls.MetroLabel metroLabel29;
+        private MetroFramework.Controls.MetroLabel metroLabel28;
+        private MetroFramework.Controls.MetroLabel metroLabel27;
+        private MetroFramework.Controls.MetroLabel metroLabel26;
+        private MetroFramework.Controls.MetroLabel metroLabel25;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroLabel metroLabel33;
+        private MetroFramework.Controls.MetroLabel metroLabel32;
+        private MetroFramework.Controls.MetroLabel metroLabel35;
+        private MetroFramework.Controls.MetroLabel metroLabel34;
+        private MetroFramework.Controls.MetroLabel metroLabel39;
+        private MetroFramework.Controls.MetroLabel metroLabel38;
+        private MetroFramework.Controls.MetroLabel metroLabel37;
+        private MetroFramework.Controls.MetroLabel metroLabel36;
+        private MetroFramework.Controls.MetroLabel metroLabel40;
+        private MetroFramework.Controls.MetroLabel metroLabel44;
+        private MetroFramework.Controls.MetroLabel metroLabel43;
+        private MetroFramework.Controls.MetroLabel metroLabel42;
+        private MetroFramework.Controls.MetroLabel metroLabel41;
+        private MetroFramework.Controls.MetroToggle metroToggle17;
+        private MetroFramework.Controls.MetroToggle metroToggle16;
+        private MetroFramework.Controls.MetroToggle metroToggle15;
+        private MetroFramework.Controls.MetroToggle metroToggle14;
+        private MetroFramework.Controls.MetroToggle metroToggle13;
+        private MetroFramework.Controls.MetroToggle metroToggle26;
+        private MetroFramework.Controls.MetroToggle metroToggle25;
+        private MetroFramework.Controls.MetroToggle metroToggle24;
+        private MetroFramework.Controls.MetroToggle metroToggle23;
+        private MetroFramework.Controls.MetroToggle metroToggle22;
+        private MetroFramework.Controls.MetroToggle metroToggle21;
+        private MetroFramework.Controls.MetroToggle metroToggle20;
+        private MetroFramework.Controls.MetroToggle metroToggle19;
+        private MetroFramework.Controls.MetroToggle metroToggle18;
+        private MetroFramework.Controls.MetroToggle metroToggle33;
+        private MetroFramework.Controls.MetroToggle metroToggle32;
+        private MetroFramework.Controls.MetroToggle metroToggle31;
+        private MetroFramework.Controls.MetroToggle metroToggle30;
+        private MetroFramework.Controls.MetroToggle metroToggle29;
+        private MetroFramework.Controls.MetroToggle metroToggle28;
+        private MetroFramework.Controls.MetroToggle metroToggle27;
     }
 }
 

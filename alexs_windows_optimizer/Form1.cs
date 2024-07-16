@@ -278,6 +278,31 @@ namespace alexs_windows_optimizer
                 setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications", "ToastEnabled", toggle == true ? 0 : 1, RegistryValueKind.DWord);
             }
 
+            public void cpuParking(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583",
+                    "Attributes", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583",
+                    "ValueMax", toggle == true ? 0 : 64, RegistryValueKind.DWord);
+            }
+
+            public void cpuThrottling(bool toggle)
+            {
+                using (RegistryKey key = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\Power\PowerThrottling", true))
+                {
+                    if(key != null)
+                    {
+
+                    }
+                    key.SetValue("PowerThrottlingOff", toggle == true ? 1 : 0, RegistryValueKind.DWord);
+                }
+            }
+
+            public void driverSearch(bool toggle)
+            {
+                setRegisterLM(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching", "SearchOrderConfig", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
             public void setRegisterCU(string path, string name, object value, RegistryValueKind type) //setting current user registry
             {
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true))
@@ -375,10 +400,19 @@ namespace alexs_windows_optimizer
             metroToggle4.Checked = o.returnCurrentUserKeyValue(@"Software\AWO_Optimizer", "eventTimerOn") == 0 ? true : false;
             metroToggle5.Checked = o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity", "Enabled") == 0 ? true : false;
             metroToggle6.Checked = (o.executeCommandWithOutput(" powercfg /getactivescheme").ToString().Contains("Ultimate Performance")) ? true : false;
+
             metroToggle7.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects", "VisualFXSetting") == 3 ? true : false;
             metroToggle8.Checked = o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers", "HwSchMode") == 2 ? true : false;
             metroToggle9.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications", "ToastEnabled") == 0 ? true : false;
-            
+
+            metroToggle10.Checked = o.returnLocalKeyValue(
+                @"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583",
+                 "Attributes") == 0 && o.returnLocalKeyValue(
+                @"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", 
+                "ValueMax") == 0 ? true : false;
+
+            metroToggle11.Checked = o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\Power\PowerThrottling", "PowerThrottlingOff") == 1 ? true : false;
+            metroToggle12.Checked = o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching", "SearchOrderConfig") == 0 ? true : false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -396,10 +430,15 @@ namespace alexs_windows_optimizer
                 o.xboxLive(metroToggle3.Checked);
                 o.eventTimer(metroToggle4.Checked);
                 o.coreIsolation(metroToggle5.Checked);
+
                 o.ultimatePower(metroToggle6.Checked);
                 o.performanceVisuals(metroToggle7.Checked);
                 o.gpuScheduling(metroToggle8.Checked);
                 o.notifications(metroToggle9.Checked);
+                o.cpuParking(metroToggle10.Checked);
+
+                o.cpuThrottling(metroToggle11.Checked);
+                o.driverSearch(metroToggle12.Checked);
             }
         }
 
@@ -489,6 +528,21 @@ namespace alexs_windows_optimizer
         }
 
         private void metroToggle9_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle10_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle11_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle12_CheckedChanged(object sender, EventArgs e)
         {
 
         }
