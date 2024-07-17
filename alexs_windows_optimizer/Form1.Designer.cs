@@ -863,6 +863,7 @@
             this.metroToggle21.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle21.UseStyleColors = true;
             this.metroToggle21.UseVisualStyleBackColor = true;
+            this.metroToggle21.CheckedChanged += new System.EventHandler(this.metroToggle21_CheckedChanged);
             // 
             // metroToggle20
             // 
@@ -876,6 +877,7 @@
             this.metroToggle20.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle20.UseStyleColors = true;
             this.metroToggle20.UseVisualStyleBackColor = true;
+            this.metroToggle20.CheckedChanged += new System.EventHandler(this.metroToggle20_CheckedChanged);
             // 
             // metroToggle19
             // 
@@ -902,6 +904,7 @@
             this.metroToggle18.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle18.UseStyleColors = true;
             this.metroToggle18.UseVisualStyleBackColor = true;
+            this.metroToggle18.CheckedChanged += new System.EventHandler(this.metroToggle18_CheckedChanged);
             // 
             // metroLabel39
             // 
@@ -982,6 +985,7 @@
             this.metroButton3.Size = new System.Drawing.Size(169, 31);
             this.metroButton3.TabIndex = 25;
             this.metroButton3.Text = "Apply Optimizations";
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // metroLabel33
             // 

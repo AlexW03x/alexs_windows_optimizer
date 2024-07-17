@@ -18,6 +18,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Net.NetworkInformation;
+using System.Windows.Controls.Primitives;
+using System.CodeDom;
 
 namespace alexs_windows_optimizer
 { 
@@ -120,6 +122,38 @@ namespace alexs_windows_optimizer
                     cmd.WaitForExit();
                 }
                 catch (Exception ex)
+                {
+                    MessageBox.Show($"Command execution failed for the following command:\n{command}", "Error!", MessageBoxButtons.OK);
+                }
+
+                return output;
+            }
+
+            public string executePowershellWithOutput(string command)
+            {
+                string output = "";
+                try
+                {
+                    string path = Path.Combine(Environment.GetFolderPath(
+                        Environment.SpecialFolder.System), @"WindowsPowerShell\v1.0\powershell.exe");
+                    Process ps = new Process();
+                    ProcessStartInfo info = new ProcessStartInfo()
+                    {
+                        FileName = path,
+                        RedirectStandardError = true,
+                        RedirectStandardOutput = true,
+                        CreateNoWindow = true,
+                        Arguments = $"-NoProfile -ExecutionPolicy Bypass -Command \"{command}\"",
+                        Verb = "runas"
+                    };
+
+                    ps.StartInfo = info;
+                    ps.Start();
+
+                    output = "Output:\n" + ps.StandardOutput.ReadToEnd() + "\n\nErrors: " + ps.StandardError.ReadToEnd();
+                    ps.WaitForExit();
+                }
+                catch(Exception ex)
                 {
                     MessageBox.Show($"Command execution failed for the following command:\n{command}", "Error!", MessageBoxButtons.OK);
                 }
@@ -363,6 +397,67 @@ namespace alexs_windows_optimizer
                 return null;
             }
 
+            public string getActiveNetworkName()
+            {
+                foreach (NetworkInterface netIDs in NetworkInterface.GetAllNetworkInterfaces())
+                {
+                    if (netIDs.OperationalStatus == OperationalStatus.Up)
+                    {
+                        var ipAddress = netIDs.GetIPProperties().UnicastAddresses.FirstOrDefault(ip => ip.Address.AddressFamily ==
+                            System.Net.Sockets.AddressFamily.InterNetwork);
+
+                        if (ipAddress != null)
+                        {
+                            return netIDs.Name;
+                        }
+                    }
+                }
+
+                return null;
+            }
+
+            public void setTCPTuning(bool toggle)
+            {
+                string execute = executeCommandWithOutput("netsh int tcp set global autotuning=" +
+                    (toggle == true ? "disabled" : "normal"));
+            }
+
+            public bool getNetInfo(string command, string key, string value)
+            {
+                string tcp = executeCommandWithOutput(command);
+
+                string lookup = @"" + key + @"\s*:\s*(\w+)";
+                Match str = Regex.Match(tcp, lookup, RegexOptions.IgnoreCase);
+
+                if (str.Success)
+                {
+                    return str.Groups[1].Value.Equals(value, StringComparison.OrdinalIgnoreCase);
+                }
+
+                return false;
+            }
+
+            public void setHeuristics(bool toggle)
+            {
+                string execute = executeCommandWithOutput("netsh int tcp set heuristics " +
+                    (toggle == true ? "disabled" : "enabled"));
+            }
+
+            public void setCongestion(bool toggle)
+            {
+                string execute = executePowershellWithOutput("netsh int tcp set supplemental template=custom congestionprovider=" +
+                    (toggle == true ? "ctcp" : "default"));
+            }
+
+            public void setRSSandRSC(bool toggle)
+            {
+                string executeRSS = executeCommandWithOutput("netsh int tcp set global rss=" +
+                    (toggle == true ? "enabled" : "disabled"));
+
+                string executeRSC = executeCommandWithOutput("netsh int tcp set global rsc=" +
+                    (toggle == true ? "disabled" : "enabled"));
+            }
+
             public void setRegisterCU(string path, string name, object value, RegistryValueKind type) //setting current user registry
             {
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(path, true))
@@ -485,7 +580,11 @@ namespace alexs_windows_optimizer
                 "TCPNoDelay")) == 1 ? true : false;
             metroToggle17.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + o.getActiveNetworkID(),
                 "TcpDelAckTicks")) == 0 ? true : false;
-
+            metroToggle18.Checked = o.getNetInfo("netsh int tcp show global", "Receive Window Auto-Tuning Level", "disabled");
+            metroToggle19.Checked = o.getNetInfo("netsh int tcp show heuristics", "Window Scaling heuristics", "disabled");
+            metroToggle20.Checked = o.getNetInfo("netsh int tcp show supplemental", "Congestion Control Provider", "ctcp");
+            metroToggle21.Checked = o.getNetInfo("netsh int tcp show global", "Receive-Side Scaling State", "enabled") &&
+                o.getNetInfo("netsh int tcp show global", "Receive Segment Coalescing State", "disabled");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -519,6 +618,14 @@ namespace alexs_windows_optimizer
                 o.noDelay(metroToggle16.Checked);
                 o.delayTicks(metroToggle17.Checked);
             }
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            o.setTCPTuning(metroToggle18.Checked);
+            o.setHeuristics(metroToggle19.Checked);
+            o.setCongestion(metroToggle20.Checked);
+            o.setRSSandRSC(metroToggle21.Checked);
         }
 
         private void metroLabel19_Click(object sender, EventArgs e)
@@ -643,6 +750,21 @@ namespace alexs_windows_optimizer
 
         private void metroToggle16_CheckedChanged(object sender, EventArgs e)
         {
+        }
+
+        private void metroToggle18_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle20_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle21_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
