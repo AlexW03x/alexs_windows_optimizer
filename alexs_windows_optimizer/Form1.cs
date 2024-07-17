@@ -17,6 +17,7 @@ using System.Security.AccessControl;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Net.NetworkInformation;
 
 namespace alexs_windows_optimizer
 { 
@@ -300,7 +301,66 @@ namespace alexs_windows_optimizer
 
             public void driverSearch(bool toggle)
             {
-                setRegisterLM(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching", "SearchOrderConfig", toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                //setRegisterLM(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching", "SearchOrderConfig", 
+                //    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void networkThrottling(bool toggle)
+            {
+               // setRegisterLM(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile", "NetworkThrottlingIndex", 
+               //     toggle == true ? 0xFFFFFFFF : 0xFFFFFFFF, RegistryValueKind.DWord);
+            }
+
+            public void systemResponsiveness(bool toggle)
+            {
+                //setRegisterLM(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile", "SystemResponsiveness",
+                //    toggle == true ? 0 : 0, RegistryValueKind.DWord);
+            }
+
+            public void gamingFrequencies(bool toggle)
+            {
+                foreach(NetworkInterface netIDs in NetworkInterface.GetAllNetworkInterfaces())
+                {
+                    setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + netIDs.Id, "TcpAckFrequency", 
+                        toggle == true ? 1 : 0, RegistryValueKind.DWord);
+                }
+            }
+
+            public void noDelay(bool toggle)
+            {
+                foreach(NetworkInterface netIDs in NetworkInterface.GetAllNetworkInterfaces())
+                {
+                    setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + netIDs.Id, "TCPNoDelay",
+                        toggle == true ? 1 : 0, RegistryValueKind.DWord);
+                }
+            }
+
+            public void delayTicks(bool toggle)
+            {
+                foreach (NetworkInterface netIDs in NetworkInterface.GetAllNetworkInterfaces())
+                {
+                    setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + netIDs.Id, "TcpDelAckTicks",
+                        toggle == true ? 0 : 0, RegistryValueKind.DWord);
+                }
+            }
+
+            public string getActiveNetworkID()
+            {
+                foreach(NetworkInterface netIDs in NetworkInterface.GetAllNetworkInterfaces())
+                {
+                    if(netIDs.OperationalStatus == OperationalStatus.Up)
+                    {
+                        var ipAddress = netIDs.GetIPProperties().UnicastAddresses.FirstOrDefault(ip => ip.Address.AddressFamily ==
+                            System.Net.Sockets.AddressFamily.InterNetwork);
+
+                        if(ipAddress != null)
+                        {
+                            return netIDs.Id;
+                        }
+                    }
+                }
+
+                return null;
             }
 
             public void setRegisterCU(string path, string name, object value, RegistryValueKind type) //setting current user registry
@@ -309,7 +369,7 @@ namespace alexs_windows_optimizer
                 {
                     if(key == null)
                     {
-                        MessageBox.Show($"{path}+/{name} doesn't exist or could not be found!\n\nYour system may not support this feature!", "Error!", MessageBoxButtons.OK);
+                        MessageBox.Show($"{path}->{name} doesn't exist or could not be found!\n\nYour system may not support this feature!", "Error!", MessageBoxButtons.OK);
                     }
                     key.SetValue(name, value, type);
                 }
@@ -322,7 +382,7 @@ namespace alexs_windows_optimizer
                 {
                     if(key == null)
                     {
-                        MessageBox.Show($"{path}+/{name} doesn't exist or could not be found!\n\nYour system may not support this feature!", "Error!", MessageBoxButtons.OK);
+                        MessageBox.Show($"{path}->{name} doesn't exist or could not be found!\n\nYour system may not support this feature!", "Error!", MessageBoxButtons.OK);
                     }
                     key.SetValue(name, value, type);
                 }
@@ -352,9 +412,9 @@ namespace alexs_windows_optimizer
                 return result;
             }
 
-            public int returnLocalKeyValue(string path, string name)
+            public object returnLocalKeyValue(string path, string name)
             {
-                int result = 0;
+                object result = null;
                 try
                 {
                     using (RegistryKey key = Registry.LocalMachine.OpenSubKey(path))
@@ -363,7 +423,7 @@ namespace alexs_windows_optimizer
                         {
                             if(key.GetValue(name) != null)
                             {
-                                result = Convert.ToInt16(key.GetValue(name).ToString());
+                                result = key.GetValue(name);
                             }
                         }
                     }
@@ -391,28 +451,41 @@ namespace alexs_windows_optimizer
                 o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\GameDVR", "AppCatureEnabled") == 0 &&
                 o.returnCurrentUserKeyValue(@"System\GameConfigStore", "GameDVR_Enabled") == 0 ? true : false;
 
-            metroToggle3.Checked = o.returnLocalKeyValue(o.serviceLocation + "XblAuthManager", "Start") == 4 &&
-                o.returnLocalKeyValue(o.serviceLocation + "XblGameSave", "Start") == 4 &&
-                o.returnLocalKeyValue(o.serviceLocation + "xboxgip", "Start") == 4 &&
-                o.returnLocalKeyValue(o.serviceLocation + "XboxGipSvc", "Start") == 4 &&
-                o.returnLocalKeyValue(o.serviceLocation + "XboxNetApiSvc", "Start") == 4 ? true : false;
+            metroToggle3.Checked = Convert.ToInt16(o.returnLocalKeyValue(o.serviceLocation + "XblAuthManager", "Start")) == 4 &&
+                Convert.ToInt16(o.returnLocalKeyValue(o.serviceLocation + "XblGameSave", "Start")) == 4 &&
+                Convert.ToInt16(o.returnLocalKeyValue(o.serviceLocation + "xboxgip", "Start")) == 4 &&
+                Convert.ToInt16(o.returnLocalKeyValue(o.serviceLocation + "XboxGipSvc", "Start")) == 4 &&
+                Convert.ToInt16(o.returnLocalKeyValue(o.serviceLocation + "XboxNetApiSvc", "Start")) == 4 ? true : false;
 
             metroToggle4.Checked = o.returnCurrentUserKeyValue(@"Software\AWO_Optimizer", "eventTimerOn") == 0 ? true : false;
-            metroToggle5.Checked = o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity", "Enabled") == 0 ? true : false;
-            metroToggle6.Checked = (o.executeCommandWithOutput(" powercfg /getactivescheme").ToString().Contains("Ultimate Performance")) ? true : false;
+            metroToggle5.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity", 
+                "Enabled")) == 0 ? true : false;
+            metroToggle6.Checked = o.executeCommandWithOutput(" powercfg /getactivescheme").ToString().Contains("Ultimate Performance") ? true : false;
 
             metroToggle7.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects", "VisualFXSetting") == 3 ? true : false;
-            metroToggle8.Checked = o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers", "HwSchMode") == 2 ? true : false;
+            metroToggle8.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\GraphicsDrivers", "HwSchMode")) == 2 ? true : false;
             metroToggle9.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\PushNotifications", "ToastEnabled") == 0 ? true : false;
 
-            metroToggle10.Checked = o.returnLocalKeyValue(
+            metroToggle10.Checked = Convert.ToInt16(o.returnLocalKeyValue(
                 @"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583",
-                 "Attributes") == 0 && o.returnLocalKeyValue(
+                 "Attributes")) == 0 && Convert.ToInt16(o.returnLocalKeyValue(
                 @"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", 
-                "ValueMax") == 0 ? true : false;
+                "ValueMax")) == 0 ? true : false;
 
-            metroToggle11.Checked = o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\Power\PowerThrottling", "PowerThrottlingOff") == 1 ? true : false;
-            metroToggle12.Checked = o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching", "SearchOrderConfig") == 0 ? true : false;
+            metroToggle11.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\Power\PowerThrottling", "PowerThrottlingOff")) == 1 ? true : false;
+            metroToggle12.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching", "SearchOrderConfig")) == 0 ? true : false;
+            metroToggle13.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile", 
+                "NetworkThrottlingIndex")) == 0 ? true : false;
+            metroToggle14.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile",
+                "SystemResponsiveness")) == 0 ? true : false;
+
+            metroToggle15.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + o.getActiveNetworkID(),
+                "tcpAckFrequency")) == 1 ? true : false;
+            metroToggle16.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + o.getActiveNetworkID(),
+                "TCPNoDelay")) == 1 ? true : false;
+            metroToggle17.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + o.getActiveNetworkID(),
+                "TcpDelAckTicks")) == 0 ? true : false;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -439,6 +512,12 @@ namespace alexs_windows_optimizer
 
                 o.cpuThrottling(metroToggle11.Checked);
                 o.driverSearch(metroToggle12.Checked);
+                o.networkThrottling(metroToggle13.Checked);
+                o.systemResponsiveness(metroToggle14.Checked);
+                o.gamingFrequencies(metroToggle15.Checked);
+
+                o.noDelay(metroToggle16.Checked);
+                o.delayTicks(metroToggle17.Checked);
             }
         }
 
@@ -545,6 +624,25 @@ namespace alexs_windows_optimizer
         private void metroToggle12_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroToggle13_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle14_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle15_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle16_CheckedChanged(object sender, EventArgs e)
+        {
         }
     }
 }
