@@ -450,7 +450,7 @@ namespace alexs_windows_optimizer
 
                 if (str.Success)
                 {
-                    return str.Groups[1].Value.Equals(value, StringComparison.OrdinalIgnoreCase);
+                    return Convert.ToString(str.Groups[1].Value).Equals(value, StringComparison.OrdinalIgnoreCase);
                 }
 
                 return false;
@@ -499,6 +499,70 @@ namespace alexs_windows_optimizer
             {
                 setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "EnableTCPChimney",
                     toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void setLargeOffload(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + getActiveNetworkID(), "*LsoV2IPv4",
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + getActiveNetworkID(), "*LsoV2IPv6",
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void setTimestamps(bool toggle)
+            {
+                string executeTS = executePowershellWithOutput("netsh int tcp set global timestamps=" +
+                    (toggle == true ? "enabled" : "disabled"));
+            }
+
+            public void setMaxConnections(bool toggle)
+            {
+                setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings", "MaxConnectionsPerServer",
+                    toggle == true ? 10 : 10, RegistryValueKind.DWord);
+                setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings", "MaxConnectionsPer1_0Server",
+                    toggle == true ? 10 : 10, RegistryValueKind.DWord);
+            }
+
+            public void setHostPriorities(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\ServiceProvider", "LocalPriority",
+                    toggle == true ? 4 : 499, RegistryValueKind.DWord);
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\ServiceProvider", "HostPriority",
+                    toggle == true ? 5 : 500, RegistryValueKind.DWord);
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\ServiceProvider", "DnsPriority",
+                    toggle == true ? 6 : 2000, RegistryValueKind.DWord);
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\ServiceProvider", "NetbtPriority",
+                    toggle == true ? 7 : 2001, RegistryValueKind.DWord);
+            }
+
+            public void setTransmissions(bool toggle)
+            {
+                string executeSYN = executePowershellWithOutput("netsh int tcp set global maxsynretransmissions=" +
+                    (toggle == true ? "2" : "4"));
+                string executeRTT = executePowershellWithOutput("netsh int tcp set global nonsackrttresiliency=" +
+                    (toggle == true ? "disabled" : "enabled"));
+            }
+
+            public void setQoS(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\nlasvc", "Start",
+                    toggle == true ? 4 : 2, RegistryValueKind.DWord);
+                setRegisterLM(@"SOFTWARE\Policies\Microsoft\Windows\Psched", "NonBestEffortLimit",
+                    toggle == true ? 0 : 80, RegistryValueKind.DWord);
+            }
+
+            public void setNetworkAllocations(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management", "LargeSystemCache",
+                    toggle == true ? 1 : 0, RegistryValueKind.DWord);
+            }
+
+            public void setPorts(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "MaxUserPort",
+                    toggle == true ? 65534 : 65534, RegistryValueKind.DWord);
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "TcpTimedWaitDelay",
+                    toggle == true ? 30 : 30, RegistryValueKind.DWord);
             }
 
             public void setRegisterCU(string path, string name, object value, RegistryValueKind type) //setting current user registry
@@ -633,6 +697,27 @@ namespace alexs_windows_optimizer
             metroToggle23.Checked = o.getNetInfo("netsh int tcp show global", "ECN Capability", "enabled");
             metroToggle24.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "DisableTaskOffload")) == 0 ? true : false;
             metroToggle25.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "EnableTCPChimney")) == 0 ? true : false;
+
+            metroToggle26.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + o.getActiveNetworkID(),
+                "*LsoV2IPv4")) == 0 && Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces\" + o.getActiveNetworkID(),
+                "*LsoV2IPv6")) == 0 ? true : false;
+            metroToggle27.Checked = o.getNetInfo("netsh int tcp show global", "RFC 1323 Timestamps", "enabled");
+            metroToggle28.Checked = Convert.ToInt16(o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings", "MaxConnectionsPerServer"))
+                == 10 && Convert.ToInt16(o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings", "MaxConnectionsPer1_0Server")) == 10 ?
+                true : false;
+            metroToggle29.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\ServiceProvider", "LocalPriority")) == 4 &&
+                Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\ServiceProvider", "HostPriority")) == 5 &&
+                Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\ServiceProvider", "DnsPriority")) == 6 &&
+                Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\ServiceProvider", "NetbtPriority")) == 7 ? true : false;
+            metroToggle30.Checked = o.getNetInfo("netsh int tcp show global", "Max SYN Retransmissions", "2") &&
+                o.getNetInfo("netsh int tcp show global", "Non Sack Rtt Resiliency", "disabled");
+            metroToggle31.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Policies\Microsoft\Windows\Psched", "NonBestEffortLimit")) == 0
+                && Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\nlasvc", "Start")) == 4 ? true : false;
+
+            metroToggle32.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management", "LargeSystemCache")) == 1
+                ? true : false;
+            metroToggle33.Checked = Convert.ToInt32(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "MaxUserPort")) == 65534
+                && Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "TcpTimedWaitDelay")) == 30 ? true : false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -675,9 +760,19 @@ namespace alexs_windows_optimizer
             o.setCongestion(metroToggle20.Checked);
             o.setRSSandRSC(metroToggle21.Checked);
             o.setTTL(metroToggle22.Checked);
+
             o.setECN(metroToggle23.Checked);
             o.setChimneyOffload(metroToggle24.Checked);
             o.setTCPChimney(metroToggle25.Checked);
+            o.setLargeOffload(metroToggle26.Checked);
+            o.setTimestamps(metroToggle27.Checked);
+
+            o.setMaxConnections(metroToggle28.Checked);
+            o.setHostPriorities(metroToggle29.Checked);
+            o.setTransmissions(metroToggle30.Checked);
+            o.setQoS(metroToggle31.Checked);
+            o.setNetworkAllocations(metroToggle32.Checked);
+            o.setPorts(metroToggle33.Checked);
         }
 
         private void metroLabel19_Click(object sender, EventArgs e)
@@ -830,6 +925,41 @@ namespace alexs_windows_optimizer
         }
 
         private void metroToggle24_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle26_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle28_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle29_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle30_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle31_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle32_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle33_CheckedChanged(object sender, EventArgs e)
         {
 
         }

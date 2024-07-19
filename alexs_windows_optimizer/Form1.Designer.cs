@@ -707,6 +707,7 @@
             this.metroToggle33.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle33.UseStyleColors = true;
             this.metroToggle33.UseVisualStyleBackColor = true;
+            this.metroToggle33.CheckedChanged += new System.EventHandler(this.metroToggle33_CheckedChanged);
             // 
             // metroToggle32
             // 
@@ -720,6 +721,7 @@
             this.metroToggle32.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle32.UseStyleColors = true;
             this.metroToggle32.UseVisualStyleBackColor = true;
+            this.metroToggle32.CheckedChanged += new System.EventHandler(this.metroToggle32_CheckedChanged);
             // 
             // metroToggle31
             // 
@@ -733,6 +735,7 @@
             this.metroToggle31.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle31.UseStyleColors = true;
             this.metroToggle31.UseVisualStyleBackColor = true;
+            this.metroToggle31.CheckedChanged += new System.EventHandler(this.metroToggle31_CheckedChanged);
             // 
             // metroToggle30
             // 
@@ -746,6 +749,7 @@
             this.metroToggle30.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle30.UseStyleColors = true;
             this.metroToggle30.UseVisualStyleBackColor = true;
+            this.metroToggle30.CheckedChanged += new System.EventHandler(this.metroToggle30_CheckedChanged);
             // 
             // metroToggle29
             // 
@@ -759,6 +763,7 @@
             this.metroToggle29.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle29.UseStyleColors = true;
             this.metroToggle29.UseVisualStyleBackColor = true;
+            this.metroToggle29.CheckedChanged += new System.EventHandler(this.metroToggle29_CheckedChanged);
             // 
             // metroToggle28
             // 
@@ -772,6 +777,7 @@
             this.metroToggle28.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle28.UseStyleColors = true;
             this.metroToggle28.UseVisualStyleBackColor = true;
+            this.metroToggle28.CheckedChanged += new System.EventHandler(this.metroToggle28_CheckedChanged);
             // 
             // metroToggle27
             // 
@@ -798,6 +804,7 @@
             this.metroToggle26.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroToggle26.UseStyleColors = true;
             this.metroToggle26.UseVisualStyleBackColor = true;
+            this.metroToggle26.CheckedChanged += new System.EventHandler(this.metroToggle26_CheckedChanged);
             // 
             // metroToggle25
             // 
