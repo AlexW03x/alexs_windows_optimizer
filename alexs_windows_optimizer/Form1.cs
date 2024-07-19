@@ -335,20 +335,20 @@ namespace alexs_windows_optimizer
 
             public void driverSearch(bool toggle)
             {
-                //setRegisterLM(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching", "SearchOrderConfig", 
-                //    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                setRegisterLM(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching", "SearchOrderConfig", 
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
             }
 
             public void networkThrottling(bool toggle)
             {
-               // setRegisterLM(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile", "NetworkThrottlingIndex", 
-               //     toggle == true ? 0xFFFFFFFF : 0xFFFFFFFF, RegistryValueKind.DWord);
+                setRegisterLM(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile", "NetworkThrottlingIndex", 
+                    toggle == true ? 0xFFFFFFFF : 0xFFFFFFFF, RegistryValueKind.DWord);
             }
 
             public void systemResponsiveness(bool toggle)
             {
-                //setRegisterLM(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile", "SystemResponsiveness",
-                //    toggle == true ? 0 : 0, RegistryValueKind.DWord);
+                setRegisterLM(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile", "SystemResponsiveness",
+                    toggle == true ? 0 : 0, RegistryValueKind.DWord);
             }
 
             public void gamingFrequencies(bool toggle)
@@ -416,6 +416,25 @@ namespace alexs_windows_optimizer
                 return null;
             }
 
+            public string getActiveNetworkDesc()
+            {
+                foreach (NetworkInterface netIDs in NetworkInterface.GetAllNetworkInterfaces())
+                {
+                    if (netIDs.OperationalStatus == OperationalStatus.Up)
+                    {
+                        var ipAddress = netIDs.GetIPProperties().UnicastAddresses.FirstOrDefault(ip => ip.Address.AddressFamily ==
+                            System.Net.Sockets.AddressFamily.InterNetwork);
+
+                        if (ipAddress != null)
+                        {
+                            return netIDs.Description;
+                        }
+                    }
+                }
+
+                return null;
+            }
+
             public void setTCPTuning(bool toggle)
             {
                 string execute = executeCommandWithOutput("netsh int tcp set global autotuning=" +
@@ -456,6 +475,30 @@ namespace alexs_windows_optimizer
 
                 string executeRSC = executeCommandWithOutput("netsh int tcp set global rsc=" +
                     (toggle == true ? "disabled" : "enabled"));
+            }
+
+            public void setTTL(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "DefaultTTL",
+                    toggle == true ? 64 : 64, RegistryValueKind.DWord);
+            }
+
+            public void setECN(bool toggle)
+            {
+                string executeECN = executePowershellWithOutput("netsh int tcp set global ecncapability=" +
+                    (toggle == true ? "enabled" : "disabled"));
+            }
+
+            public void setChimneyOffload(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "DisableTaskOffload",
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void setTCPChimney(bool toggle)
+            {
+                setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "EnableTCPChimney",
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
             }
 
             public void setRegisterCU(string path, string name, object value, RegistryValueKind type) //setting current user registry
@@ -583,8 +626,13 @@ namespace alexs_windows_optimizer
             metroToggle18.Checked = o.getNetInfo("netsh int tcp show global", "Receive Window Auto-Tuning Level", "disabled");
             metroToggle19.Checked = o.getNetInfo("netsh int tcp show heuristics", "Window Scaling heuristics", "disabled");
             metroToggle20.Checked = o.getNetInfo("netsh int tcp show supplemental", "Congestion Control Provider", "ctcp");
+
             metroToggle21.Checked = o.getNetInfo("netsh int tcp show global", "Receive-Side Scaling State", "enabled") &&
                 o.getNetInfo("netsh int tcp show global", "Receive Segment Coalescing State", "disabled");
+            metroToggle22.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "DefaultTTL")) == 64 ? true : false;
+            metroToggle23.Checked = o.getNetInfo("netsh int tcp show global", "ECN Capability", "enabled");
+            metroToggle24.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "DisableTaskOffload")) == 0 ? true : false;
+            metroToggle25.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "EnableTCPChimney")) == 0 ? true : false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -626,6 +674,10 @@ namespace alexs_windows_optimizer
             o.setHeuristics(metroToggle19.Checked);
             o.setCongestion(metroToggle20.Checked);
             o.setRSSandRSC(metroToggle21.Checked);
+            o.setTTL(metroToggle22.Checked);
+            o.setECN(metroToggle23.Checked);
+            o.setChimneyOffload(metroToggle24.Checked);
+            o.setTCPChimney(metroToggle25.Checked);
         }
 
         private void metroLabel19_Click(object sender, EventArgs e)
@@ -763,6 +815,21 @@ namespace alexs_windows_optimizer
         }
 
         private void metroToggle21_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle22_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle23_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle24_CheckedChanged(object sender, EventArgs e)
         {
 
         }
