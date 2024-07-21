@@ -182,9 +182,9 @@
             this.groupBox1.Controls.Add(this.metroButton1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Location = new System.Drawing.Point(23, 126);
+            this.groupBox1.Location = new System.Drawing.Point(9, 126);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(329, 496);
+            this.groupBox1.Size = new System.Drawing.Size(477, 496);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gaming Optimizations [May Increase FPS]";
@@ -192,7 +192,7 @@
             // metroToggle17
             // 
             this.metroToggle17.AutoSize = true;
-            this.metroToggle17.Location = new System.Drawing.Point(234, 417);
+            this.metroToggle17.Location = new System.Drawing.Point(386, 417);
             this.metroToggle17.Name = "metroToggle17";
             this.metroToggle17.Size = new System.Drawing.Size(80, 17);
             this.metroToggle17.Style = MetroFramework.MetroColorStyle.Red;
@@ -205,7 +205,7 @@
             // metroToggle16
             // 
             this.metroToggle16.AutoSize = true;
-            this.metroToggle16.Location = new System.Drawing.Point(234, 393);
+            this.metroToggle16.Location = new System.Drawing.Point(386, 393);
             this.metroToggle16.Name = "metroToggle16";
             this.metroToggle16.Size = new System.Drawing.Size(80, 17);
             this.metroToggle16.Style = MetroFramework.MetroColorStyle.Red;
@@ -219,7 +219,7 @@
             // metroToggle15
             // 
             this.metroToggle15.AutoSize = true;
-            this.metroToggle15.Location = new System.Drawing.Point(234, 369);
+            this.metroToggle15.Location = new System.Drawing.Point(386, 369);
             this.metroToggle15.Name = "metroToggle15";
             this.metroToggle15.Size = new System.Drawing.Size(80, 17);
             this.metroToggle15.Style = MetroFramework.MetroColorStyle.Red;
@@ -233,7 +233,7 @@
             // metroToggle14
             // 
             this.metroToggle14.AutoSize = true;
-            this.metroToggle14.Location = new System.Drawing.Point(234, 345);
+            this.metroToggle14.Location = new System.Drawing.Point(386, 345);
             this.metroToggle14.Name = "metroToggle14";
             this.metroToggle14.Size = new System.Drawing.Size(80, 17);
             this.metroToggle14.Style = MetroFramework.MetroColorStyle.Red;
@@ -247,7 +247,7 @@
             // metroToggle13
             // 
             this.metroToggle13.AutoSize = true;
-            this.metroToggle13.Location = new System.Drawing.Point(234, 321);
+            this.metroToggle13.Location = new System.Drawing.Point(386, 321);
             this.metroToggle13.Name = "metroToggle13";
             this.metroToggle13.Size = new System.Drawing.Size(80, 17);
             this.metroToggle13.Style = MetroFramework.MetroColorStyle.Red;
@@ -321,7 +321,7 @@
             // metroToggle12
             // 
             this.metroToggle12.AutoSize = true;
-            this.metroToggle12.Location = new System.Drawing.Point(234, 298);
+            this.metroToggle12.Location = new System.Drawing.Point(386, 298);
             this.metroToggle12.Name = "metroToggle12";
             this.metroToggle12.Size = new System.Drawing.Size(80, 17);
             this.metroToggle12.Style = MetroFramework.MetroColorStyle.Red;
@@ -335,7 +335,7 @@
             // metroToggle11
             // 
             this.metroToggle11.AutoSize = true;
-            this.metroToggle11.Location = new System.Drawing.Point(234, 274);
+            this.metroToggle11.Location = new System.Drawing.Point(386, 274);
             this.metroToggle11.Name = "metroToggle11";
             this.metroToggle11.Size = new System.Drawing.Size(80, 17);
             this.metroToggle11.Style = MetroFramework.MetroColorStyle.Red;
@@ -349,7 +349,7 @@
             // metroToggle10
             // 
             this.metroToggle10.AutoSize = true;
-            this.metroToggle10.Location = new System.Drawing.Point(234, 250);
+            this.metroToggle10.Location = new System.Drawing.Point(386, 250);
             this.metroToggle10.Name = "metroToggle10";
             this.metroToggle10.Size = new System.Drawing.Size(80, 17);
             this.metroToggle10.Style = MetroFramework.MetroColorStyle.Red;
@@ -399,7 +399,7 @@
             // metroToggle9
             // 
             this.metroToggle9.AutoSize = true;
-            this.metroToggle9.Location = new System.Drawing.Point(234, 225);
+            this.metroToggle9.Location = new System.Drawing.Point(386, 225);
             this.metroToggle9.Name = "metroToggle9";
             this.metroToggle9.Size = new System.Drawing.Size(80, 17);
             this.metroToggle9.Style = MetroFramework.MetroColorStyle.Red;
@@ -413,7 +413,7 @@
             // metroToggle8
             // 
             this.metroToggle8.AutoSize = true;
-            this.metroToggle8.Location = new System.Drawing.Point(234, 200);
+            this.metroToggle8.Location = new System.Drawing.Point(386, 200);
             this.metroToggle8.Name = "metroToggle8";
             this.metroToggle8.Size = new System.Drawing.Size(80, 17);
             this.metroToggle8.Style = MetroFramework.MetroColorStyle.Red;
@@ -427,7 +427,7 @@
             // metroToggle7
             // 
             this.metroToggle7.AutoSize = true;
-            this.metroToggle7.Location = new System.Drawing.Point(234, 175);
+            this.metroToggle7.Location = new System.Drawing.Point(386, 175);
             this.metroToggle7.Name = "metroToggle7";
             this.metroToggle7.Size = new System.Drawing.Size(80, 17);
             this.metroToggle7.Style = MetroFramework.MetroColorStyle.Red;
@@ -441,7 +441,7 @@
             // metroToggle6
             // 
             this.metroToggle6.AutoSize = true;
-            this.metroToggle6.Location = new System.Drawing.Point(234, 149);
+            this.metroToggle6.Location = new System.Drawing.Point(386, 149);
             this.metroToggle6.Name = "metroToggle6";
             this.metroToggle6.Size = new System.Drawing.Size(80, 17);
             this.metroToggle6.Style = MetroFramework.MetroColorStyle.Red;
@@ -455,7 +455,7 @@
             // metroToggle5
             // 
             this.metroToggle5.AutoSize = true;
-            this.metroToggle5.Location = new System.Drawing.Point(234, 124);
+            this.metroToggle5.Location = new System.Drawing.Point(386, 124);
             this.metroToggle5.Name = "metroToggle5";
             this.metroToggle5.Size = new System.Drawing.Size(80, 17);
             this.metroToggle5.Style = MetroFramework.MetroColorStyle.Red;
@@ -469,7 +469,7 @@
             // metroToggle4
             // 
             this.metroToggle4.AutoSize = true;
-            this.metroToggle4.Location = new System.Drawing.Point(234, 99);
+            this.metroToggle4.Location = new System.Drawing.Point(386, 99);
             this.metroToggle4.Name = "metroToggle4";
             this.metroToggle4.Size = new System.Drawing.Size(80, 17);
             this.metroToggle4.Style = MetroFramework.MetroColorStyle.Red;
@@ -483,7 +483,7 @@
             // metroToggle3
             // 
             this.metroToggle3.AutoSize = true;
-            this.metroToggle3.Location = new System.Drawing.Point(234, 76);
+            this.metroToggle3.Location = new System.Drawing.Point(386, 76);
             this.metroToggle3.Name = "metroToggle3";
             this.metroToggle3.Size = new System.Drawing.Size(80, 17);
             this.metroToggle3.Style = MetroFramework.MetroColorStyle.Red;
@@ -497,7 +497,7 @@
             // metroToggle2
             // 
             this.metroToggle2.AutoSize = true;
-            this.metroToggle2.Location = new System.Drawing.Point(234, 51);
+            this.metroToggle2.Location = new System.Drawing.Point(386, 51);
             this.metroToggle2.Name = "metroToggle2";
             this.metroToggle2.Size = new System.Drawing.Size(80, 17);
             this.metroToggle2.Style = MetroFramework.MetroColorStyle.Red;
@@ -511,7 +511,7 @@
             // metroToggle1
             // 
             this.metroToggle1.AutoSize = true;
-            this.metroToggle1.Location = new System.Drawing.Point(234, 26);
+            this.metroToggle1.Location = new System.Drawing.Point(386, 26);
             this.metroToggle1.Name = "metroToggle1";
             this.metroToggle1.Size = new System.Drawing.Size(80, 17);
             this.metroToggle1.Style = MetroFramework.MetroColorStyle.Red;
@@ -632,9 +632,9 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(74, 448);
+            this.metroButton1.Location = new System.Drawing.Point(88, 449);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(169, 31);
+            this.metroButton1.Size = new System.Drawing.Size(279, 31);
             this.metroButton1.TabIndex = 0;
             this.metroButton1.Text = "Apply Optimizations";
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
@@ -710,9 +710,9 @@
             this.groupBox2.Controls.Add(this.metroLabel24);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox2.Location = new System.Drawing.Point(373, 126);
+            this.groupBox2.Location = new System.Drawing.Point(504, 126);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(305, 496);
+            this.groupBox2.Size = new System.Drawing.Size(460, 496);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Network Optimization";
@@ -720,7 +720,7 @@
             // metroToggle33
             // 
             this.metroToggle33.AutoSize = true;
-            this.metroToggle33.Location = new System.Drawing.Point(210, 395);
+            this.metroToggle33.Location = new System.Drawing.Point(368, 395);
             this.metroToggle33.Name = "metroToggle33";
             this.metroToggle33.Size = new System.Drawing.Size(80, 17);
             this.metroToggle33.Style = MetroFramework.MetroColorStyle.Red;
@@ -734,7 +734,7 @@
             // metroToggle32
             // 
             this.metroToggle32.AutoSize = true;
-            this.metroToggle32.Location = new System.Drawing.Point(210, 370);
+            this.metroToggle32.Location = new System.Drawing.Point(368, 370);
             this.metroToggle32.Name = "metroToggle32";
             this.metroToggle32.Size = new System.Drawing.Size(80, 17);
             this.metroToggle32.Style = MetroFramework.MetroColorStyle.Red;
@@ -748,7 +748,7 @@
             // metroToggle31
             // 
             this.metroToggle31.AutoSize = true;
-            this.metroToggle31.Location = new System.Drawing.Point(210, 346);
+            this.metroToggle31.Location = new System.Drawing.Point(368, 346);
             this.metroToggle31.Name = "metroToggle31";
             this.metroToggle31.Size = new System.Drawing.Size(80, 17);
             this.metroToggle31.Style = MetroFramework.MetroColorStyle.Red;
@@ -762,7 +762,7 @@
             // metroToggle30
             // 
             this.metroToggle30.AutoSize = true;
-            this.metroToggle30.Location = new System.Drawing.Point(210, 322);
+            this.metroToggle30.Location = new System.Drawing.Point(368, 322);
             this.metroToggle30.Name = "metroToggle30";
             this.metroToggle30.Size = new System.Drawing.Size(80, 17);
             this.metroToggle30.Style = MetroFramework.MetroColorStyle.Red;
@@ -776,7 +776,7 @@
             // metroToggle29
             // 
             this.metroToggle29.AutoSize = true;
-            this.metroToggle29.Location = new System.Drawing.Point(210, 298);
+            this.metroToggle29.Location = new System.Drawing.Point(368, 298);
             this.metroToggle29.Name = "metroToggle29";
             this.metroToggle29.Size = new System.Drawing.Size(80, 17);
             this.metroToggle29.Style = MetroFramework.MetroColorStyle.Red;
@@ -790,7 +790,7 @@
             // metroToggle28
             // 
             this.metroToggle28.AutoSize = true;
-            this.metroToggle28.Location = new System.Drawing.Point(210, 274);
+            this.metroToggle28.Location = new System.Drawing.Point(368, 274);
             this.metroToggle28.Name = "metroToggle28";
             this.metroToggle28.Size = new System.Drawing.Size(80, 17);
             this.metroToggle28.Style = MetroFramework.MetroColorStyle.Red;
@@ -804,7 +804,7 @@
             // metroToggle27
             // 
             this.metroToggle27.AutoSize = true;
-            this.metroToggle27.Location = new System.Drawing.Point(210, 249);
+            this.metroToggle27.Location = new System.Drawing.Point(368, 249);
             this.metroToggle27.Name = "metroToggle27";
             this.metroToggle27.Size = new System.Drawing.Size(80, 17);
             this.metroToggle27.Style = MetroFramework.MetroColorStyle.Red;
@@ -817,7 +817,7 @@
             // metroToggle26
             // 
             this.metroToggle26.AutoSize = true;
-            this.metroToggle26.Location = new System.Drawing.Point(210, 225);
+            this.metroToggle26.Location = new System.Drawing.Point(368, 225);
             this.metroToggle26.Name = "metroToggle26";
             this.metroToggle26.Size = new System.Drawing.Size(80, 17);
             this.metroToggle26.Style = MetroFramework.MetroColorStyle.Red;
@@ -831,7 +831,7 @@
             // metroToggle25
             // 
             this.metroToggle25.AutoSize = true;
-            this.metroToggle25.Location = new System.Drawing.Point(210, 200);
+            this.metroToggle25.Location = new System.Drawing.Point(368, 200);
             this.metroToggle25.Name = "metroToggle25";
             this.metroToggle25.Size = new System.Drawing.Size(80, 17);
             this.metroToggle25.Style = MetroFramework.MetroColorStyle.Red;
@@ -844,7 +844,7 @@
             // metroToggle24
             // 
             this.metroToggle24.AutoSize = true;
-            this.metroToggle24.Location = new System.Drawing.Point(210, 175);
+            this.metroToggle24.Location = new System.Drawing.Point(368, 175);
             this.metroToggle24.Name = "metroToggle24";
             this.metroToggle24.Size = new System.Drawing.Size(80, 17);
             this.metroToggle24.Style = MetroFramework.MetroColorStyle.Red;
@@ -858,7 +858,7 @@
             // metroToggle23
             // 
             this.metroToggle23.AutoSize = true;
-            this.metroToggle23.Location = new System.Drawing.Point(210, 150);
+            this.metroToggle23.Location = new System.Drawing.Point(368, 150);
             this.metroToggle23.Name = "metroToggle23";
             this.metroToggle23.Size = new System.Drawing.Size(80, 17);
             this.metroToggle23.Style = MetroFramework.MetroColorStyle.Red;
@@ -872,7 +872,7 @@
             // metroToggle22
             // 
             this.metroToggle22.AutoSize = true;
-            this.metroToggle22.Location = new System.Drawing.Point(210, 125);
+            this.metroToggle22.Location = new System.Drawing.Point(368, 125);
             this.metroToggle22.Name = "metroToggle22";
             this.metroToggle22.Size = new System.Drawing.Size(80, 17);
             this.metroToggle22.Style = MetroFramework.MetroColorStyle.Red;
@@ -886,7 +886,7 @@
             // metroToggle21
             // 
             this.metroToggle21.AutoSize = true;
-            this.metroToggle21.Location = new System.Drawing.Point(210, 101);
+            this.metroToggle21.Location = new System.Drawing.Point(368, 101);
             this.metroToggle21.Name = "metroToggle21";
             this.metroToggle21.Size = new System.Drawing.Size(80, 17);
             this.metroToggle21.Style = MetroFramework.MetroColorStyle.Red;
@@ -900,7 +900,7 @@
             // metroToggle20
             // 
             this.metroToggle20.AutoSize = true;
-            this.metroToggle20.Location = new System.Drawing.Point(210, 76);
+            this.metroToggle20.Location = new System.Drawing.Point(368, 76);
             this.metroToggle20.Name = "metroToggle20";
             this.metroToggle20.Size = new System.Drawing.Size(80, 17);
             this.metroToggle20.Style = MetroFramework.MetroColorStyle.Red;
@@ -914,7 +914,7 @@
             // metroToggle19
             // 
             this.metroToggle19.AutoSize = true;
-            this.metroToggle19.Location = new System.Drawing.Point(210, 51);
+            this.metroToggle19.Location = new System.Drawing.Point(368, 51);
             this.metroToggle19.Name = "metroToggle19";
             this.metroToggle19.Size = new System.Drawing.Size(80, 17);
             this.metroToggle19.Style = MetroFramework.MetroColorStyle.Red;
@@ -927,7 +927,7 @@
             // metroToggle18
             // 
             this.metroToggle18.AutoSize = true;
-            this.metroToggle18.Location = new System.Drawing.Point(210, 27);
+            this.metroToggle18.Location = new System.Drawing.Point(368, 27);
             this.metroToggle18.Name = "metroToggle18";
             this.metroToggle18.Size = new System.Drawing.Size(80, 17);
             this.metroToggle18.Style = MetroFramework.MetroColorStyle.Red;
@@ -1012,9 +1012,9 @@
             // 
             // metroButton3
             // 
-            this.metroButton3.Location = new System.Drawing.Point(72, 448);
+            this.metroButton3.Location = new System.Drawing.Point(88, 448);
             this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(169, 31);
+            this.metroButton3.Size = new System.Drawing.Size(280, 31);
             this.metroButton3.TabIndex = 25;
             this.metroButton3.Text = "Apply Optimizations";
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
@@ -1153,9 +1153,9 @@
             this.groupBox3.Controls.Add(this.metroLabel14);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox3.Location = new System.Drawing.Point(699, 126);
+            this.groupBox3.Location = new System.Drawing.Point(981, 127);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(425, 141);
+            this.groupBox3.Size = new System.Drawing.Size(467, 141);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Current System Information";
@@ -1283,9 +1283,9 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(373, 71);
+            this.metroButton2.Location = new System.Drawing.Point(737, 634);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(305, 29);
+            this.metroButton2.Size = new System.Drawing.Size(280, 29);
             this.metroButton2.TabIndex = 25;
             this.metroButton2.Text = "Create A System Restore Point";
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
@@ -1313,9 +1313,9 @@
             this.groupBox4.Controls.Add(this.metroLabel45);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox4.Location = new System.Drawing.Point(699, 276);
+            this.groupBox4.Location = new System.Drawing.Point(981, 276);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(425, 346);
+            this.groupBox4.Size = new System.Drawing.Size(467, 346);
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Privacy and Tracking Optimizations";
@@ -1324,7 +1324,7 @@
             // metroToggle42
             // 
             this.metroToggle42.AutoSize = true;
-            this.metroToggle42.Location = new System.Drawing.Point(329, 222);
+            this.metroToggle42.Location = new System.Drawing.Point(377, 222);
             this.metroToggle42.Name = "metroToggle42";
             this.metroToggle42.Size = new System.Drawing.Size(80, 17);
             this.metroToggle42.Style = MetroFramework.MetroColorStyle.Red;
@@ -1338,7 +1338,7 @@
             // metroToggle41
             // 
             this.metroToggle41.AutoSize = true;
-            this.metroToggle41.Location = new System.Drawing.Point(329, 198);
+            this.metroToggle41.Location = new System.Drawing.Point(377, 198);
             this.metroToggle41.Name = "metroToggle41";
             this.metroToggle41.Size = new System.Drawing.Size(80, 17);
             this.metroToggle41.Style = MetroFramework.MetroColorStyle.Red;
@@ -1352,7 +1352,7 @@
             // metroToggle40
             // 
             this.metroToggle40.AutoSize = true;
-            this.metroToggle40.Location = new System.Drawing.Point(329, 174);
+            this.metroToggle40.Location = new System.Drawing.Point(377, 174);
             this.metroToggle40.Name = "metroToggle40";
             this.metroToggle40.Size = new System.Drawing.Size(80, 17);
             this.metroToggle40.Style = MetroFramework.MetroColorStyle.Red;
@@ -1366,7 +1366,7 @@
             // metroToggle39
             // 
             this.metroToggle39.AutoSize = true;
-            this.metroToggle39.Location = new System.Drawing.Point(329, 150);
+            this.metroToggle39.Location = new System.Drawing.Point(377, 150);
             this.metroToggle39.Name = "metroToggle39";
             this.metroToggle39.Size = new System.Drawing.Size(80, 17);
             this.metroToggle39.Style = MetroFramework.MetroColorStyle.Red;
@@ -1380,7 +1380,7 @@
             // metroToggle38
             // 
             this.metroToggle38.AutoSize = true;
-            this.metroToggle38.Location = new System.Drawing.Point(329, 126);
+            this.metroToggle38.Location = new System.Drawing.Point(377, 126);
             this.metroToggle38.Name = "metroToggle38";
             this.metroToggle38.Size = new System.Drawing.Size(80, 17);
             this.metroToggle38.Style = MetroFramework.MetroColorStyle.Red;
@@ -1394,7 +1394,7 @@
             // metroToggle37
             // 
             this.metroToggle37.AutoSize = true;
-            this.metroToggle37.Location = new System.Drawing.Point(329, 102);
+            this.metroToggle37.Location = new System.Drawing.Point(377, 102);
             this.metroToggle37.Name = "metroToggle37";
             this.metroToggle37.Size = new System.Drawing.Size(80, 17);
             this.metroToggle37.Style = MetroFramework.MetroColorStyle.Red;
@@ -1408,7 +1408,7 @@
             // metroToggle36
             // 
             this.metroToggle36.AutoSize = true;
-            this.metroToggle36.Location = new System.Drawing.Point(329, 77);
+            this.metroToggle36.Location = new System.Drawing.Point(377, 77);
             this.metroToggle36.Name = "metroToggle36";
             this.metroToggle36.Size = new System.Drawing.Size(80, 17);
             this.metroToggle36.Style = MetroFramework.MetroColorStyle.Red;
@@ -1422,7 +1422,7 @@
             // metroToggle35
             // 
             this.metroToggle35.AutoSize = true;
-            this.metroToggle35.Location = new System.Drawing.Point(329, 52);
+            this.metroToggle35.Location = new System.Drawing.Point(377, 52);
             this.metroToggle35.Name = "metroToggle35";
             this.metroToggle35.Size = new System.Drawing.Size(80, 17);
             this.metroToggle35.Style = MetroFramework.MetroColorStyle.Red;
@@ -1436,7 +1436,7 @@
             // metroToggle34
             // 
             this.metroToggle34.AutoSize = true;
-            this.metroToggle34.Location = new System.Drawing.Point(329, 27);
+            this.metroToggle34.Location = new System.Drawing.Point(377, 27);
             this.metroToggle34.Name = "metroToggle34";
             this.metroToggle34.Size = new System.Drawing.Size(80, 17);
             this.metroToggle34.Style = MetroFramework.MetroColorStyle.Red;
@@ -1448,9 +1448,9 @@
             // 
             // metroButton6
             // 
-            this.metroButton6.Location = new System.Drawing.Point(129, 298);
+            this.metroButton6.Location = new System.Drawing.Point(109, 299);
             this.metroButton6.Name = "metroButton6";
-            this.metroButton6.Size = new System.Drawing.Size(169, 31);
+            this.metroButton6.Size = new System.Drawing.Size(279, 31);
             this.metroButton6.TabIndex = 46;
             this.metroButton6.Text = "Apply Optimizations";
             this.metroButton6.Click += new System.EventHandler(this.metroButton6_Click);
@@ -1565,7 +1565,7 @@
             // 
             // metroButton4
             // 
-            this.metroButton4.Location = new System.Drawing.Point(699, 71);
+            this.metroButton4.Location = new System.Drawing.Point(1032, 634);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(199, 29);
             this.metroButton4.TabIndex = 27;
@@ -1574,7 +1574,7 @@
             // 
             // metroButton5
             // 
-            this.metroButton5.Location = new System.Drawing.Point(922, 71);
+            this.metroButton5.Location = new System.Drawing.Point(1246, 634);
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(202, 29);
             this.metroButton5.TabIndex = 28;
@@ -1608,7 +1608,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 686);
+            this.ClientSize = new System.Drawing.Size(1457, 686);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.metroLabel55);
             this.Controls.Add(this.metroButton5);

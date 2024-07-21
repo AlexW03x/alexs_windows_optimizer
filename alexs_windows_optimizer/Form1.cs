@@ -43,6 +43,8 @@ namespace alexs_windows_optimizer
 
             //set the metroLanguageDropDown content
             metroComboBox1.SelectedItem = language;
+            //set the language
+            changeLanguage(language);
 
             //Showcase toggle settings from analysing current PC settings
             updateToggles();
@@ -292,28 +294,220 @@ namespace alexs_windows_optimizer
             }
             else if(language == "Español")
             {
-                changeToFrench();
+                changeToSpanish();
             }
             else if(language == "Français")
             {
-                changeToSpanish();
+                changeToFrench();
             }
         }
 
 
         public void changeToEnglish()
         {
+            this.Text = "Alex's Windows Optimizer";
+            metroLabel1.Text = "Language";
+            metroButton4.Text = "Use Recommended Settings?";
+            metroButton5.Text = "Reset All Settings?";
+            metroButton2.Text = "Create A System Restore Point?";
 
+            groupBox1.Text = "Gaming Optimizations [May Increase FPS]";
+            metroLabel2.Text = "Gaming Mode:";
+            metroLabel3.Text = "Turn off Xbox Game Bar?";
+            metroLabel4.Text = "Turn off Xbox Live?";
+            metroLabel5.Text = "Disable Precision Timer?";
+            metroLabel6.Text = "Disable Core Isolation?";
+            metroLabel7.Text = "Utilise Ultimate Power Plan?";
+            metroLabel8.Text = "Apply Best Performance Visuals?";
+            metroLabel9.Text = "Enable GPU Scheduling?";
+            metroLabel10.Text = "Disable Notification Popups?";
+            metroLabel11.Text = "Disable CPU Parking?";
+            metroLabel12.Text = "Disable Frequency Scaling?";
+            metroLabel13.Text = "Disable Driver Searching?";
+            metroLabel40.Text = "Optimize Network Throttling?";
+            metroLabel41.Text = "Optimize System Responsiveness?";
+            metroLabel42.Text = "Disable Gaming Frequencies?";
+            metroLabel43.Text = "Enable No Delay?";
+            metroLabel44.Text = "Disable Gaming Ticks?";
+            metroButton1.Text = "Apply Optimizations";
+
+            groupBox2.Text = "Network Optimizations";
+            metroLabel24.Text = "Normalise TCP Auto Tuning?";
+            metroLabel25.Text = "Normalise Scaling Heuristics?";
+            metroLabel26.Text = "Enable CTCP Congestion?";
+            metroLabel27.Text = "Enable RSS and RSC?";
+            metroLabel28.Text = "Utilise 64 Time To Live?";
+            metroLabel29.Text = "Disable ECN Capabilities?";
+            metroLabel30.Text = "Disable Checksum Offloading?";
+            metroLabel31.Text = "Disable TCP Chimney Offload?";
+            metroLabel32.Text = "Disable Large Send Offload?";
+            metroLabel33.Text = "Disable TCP Timestamps?";
+            metroLabel34.Text = "Fix Connections Per Server?";
+            metroLabel35.Text = "Fix Host Priorities?";
+            metroLabel36.Text = "Adjust Retransmissions?";
+            metroLabel37.Text = "Optimise Quality of Service?";
+            metroLabel38.Text = "Sort Network Allocations?";
+            metroLabel39.Text = "Adjust Dynamic Ports?";
+            metroButton3.Text = "Apply Optimizations";
+
+            groupBox3.Text = "Current System Information";
+            metroLabel14.Text = "PC Name:";
+            metroLabel15.Text = "CPU:";
+            metroLabel16.Text = "GPU:";
+            metroLabel17.Text = "OS:";
+            metroLabel18.Text = "Paging Size:";
+
+            groupBox4.Text = "Privacy and Tracking Optimizations";
+            metroLabel45.Text = "Disable Location Services?";
+            metroLabel46.Text = "Disable Diagnostics?";
+            metroLabel47.Text = "Disable Advertising ID?";
+            metroLabel48.Text = "Disable Handwriting Data?";
+            metroLabel49.Text = "Disable Typing Data?";
+            metroLabel50.Text = "Disable Tracking of Apps?";
+            metroLabel51.Text = "Disable Activity History?";
+            metroLabel52.Text = "Disable Suggestions?";
+            metroLabel53.Text = "Disable Clipboard History?";
+            metroButton6.Text = "Apply Optimizations";
+
+            metroLabel55.Text = "Version 1.0 | Developed By Alex Walker";
         }
 
         public void changeToFrench()
         {
+            this.Text = "Optimiseur Windows d'Alex";
+            metroLabel1.Text = "Langue";
+            metroButton4.Text = "Utiliser les paramètres recommandés?";
+            metroButton5.Text = "Réinitialiser tous les paramètres?";
+            metroButton2.Text = "Créer un point de restauration du système?";
 
+            groupBox1.Text = "Optimisations pour les jeux [Peut augmenter le nombre de FPS]";
+            metroLabel2.Text = "Mode jeu:";
+            metroLabel3.Text = "Désactiver la barre de jeu Xbox?";
+            metroLabel4.Text = "Désactiver Xbox Live?";
+            metroLabel5.Text = "Désactiver la minuterie de précision?";
+            metroLabel6.Text = "Désactiver l'isolation du noyau?";
+            metroLabel7.Text = "Utiliser le plan Ultimate Power?";
+            metroLabel8.Text = "Appliquer les meilleurs visuels de performance?";
+            metroLabel9.Text = "Activer la planification du GPU?";
+            metroLabel10.Text = "Désactiver les fenêtres pop-up de notification?";
+            metroLabel11.Text = "Désactiver le stationnement de l'unité centrale?";
+            metroLabel12.Text = "Désactiver la mise à l'échelle des fréquences?";
+            metroLabel13.Text = "Désactiver la recherche de pilotes?";
+            metroLabel40.Text = "Optimiser l'étranglement du réseau?";
+            metroLabel41.Text = "Optimiser la réactivité du système?";
+            metroLabel42.Text = "Désactiver les fréquences de jeu?";
+            metroLabel43.Text = "Activer l'option Pas de délai?";
+            metroLabel44.Text = "Désactiver les tics de jeu?";
+            metroButton1.Text = "Appliquer les optimisations";
+
+            groupBox2.Text = "Optimisation du réseau";
+            metroLabel24.Text = "Normaliser TCP Auto Tuning?";
+            metroLabel25.Text = "Normaliser l'heuristique de mise à l'échelle?";
+            metroLabel26.Text = "Activer la congestion CTCP?";
+            metroLabel27.Text = "Activer RSS et RSC?";
+            metroLabel28.Text = "Utiliser 64 fois le temps de vivre?";
+            metroLabel29.Text = "Désactiver les capacités ECN?";
+            metroLabel30.Text = "Désactiver le déchargement de la somme de contrôle?";
+            metroLabel31.Text = "Désactiver l'option TCP Chimney Offload?";
+            metroLabel32.Text = "Désactiver le délestage des envois volumineux?";
+            metroLabel33.Text = "Désactiver les horodatages TCP?";
+            metroLabel34.Text = "Fixer les connexions par serveur?";
+            metroLabel35.Text = "Fixer les priorités en matière d'accueil?";
+            metroLabel36.Text = "Ajuster les retransmissions?";
+            metroLabel37.Text = "Optimiser la qualité de service?";
+            metroLabel38.Text = "Trier les attributions de réseau?";
+            metroLabel39.Text = "Ajuster les ports dynamiques?";
+            metroButton3.Text = "Appliquer les optimisations";
+
+            groupBox3.Text = "Informations sur le système actuel";
+            metroLabel14.Text = "Nom du PC:";
+            metroLabel15.Text = "CPU:";
+            metroLabel16.Text = "GPU:";
+            metroLabel17.Text = "OS:";
+            metroLabel18.Text = "Paging Size:";
+
+            groupBox4.Text = "Optimisation de la confidentialité et du suivi";
+            metroLabel45.Text = "Désactiver les services de localisation?";
+            metroLabel46.Text = "Désactiver les diagnostics?";
+            metroLabel47.Text = "Désactiver l'identification publicitaire?";
+            metroLabel48.Text = "Désactiver les données d'écriture manuscrite?";
+            metroLabel49.Text = "Désactiver les données de saisie?";
+            metroLabel50.Text = "Désactiver le suivi des applications?";
+            metroLabel51.Text = "Désactiver l'historique des activités?";
+            metroLabel52.Text = "Désactiver les suggestions?";
+            metroLabel53.Text = "Désactiver l'historique du presse-papiers?";
+            metroButton6.Text = "Appliquer les optimisations";
+
+            metroLabel55.Text = "Version 1.0 | Développé par Alex Walker";
         }
 
         public void changeToSpanish()
         {
+            this.Text = "Optimizador de Windows de Alex";
+            metroLabel1.Text = "Idioma:";
+            metroButton4.Text = "¿Utilizar la configuración recomendada?";
+            metroButton5.Text = "¿Restablecer todos los ajustes?";
+            metroButton2.Text = "¿Crear un punto de restauración del sistema?";
 
+            groupBox1.Text = "Optimizaciones para juegos [Pueden aumentar los FPS].";
+            metroLabel2.Text = "Modo de juego:";
+            metroLabel3.Text = "¿Desactivar la barra de juegos de Xbox?";
+            metroLabel4.Text = "¿Desactivar Xbox Live?";
+            metroLabel5.Text = "¿Desactivar el temporizador de precisión?";
+            metroLabel6.Text = "¿Desactivar el aislamiento del núcleo?";
+            metroLabel7.Text = "¿Utilizar Ultimate Power Plan?";
+            metroLabel8.Text = "¿Aplicar los mejores visuales de rendimiento?";
+            metroLabel9.Text = "¿Habilitar la programación de la GPU?";
+            metroLabel10.Text = "¿Desactivar las ventanas emergentes de notificación?";
+            metroLabel11.Text = "¿Desactivar el aparcamiento de la CPU?";
+            metroLabel12.Text = "¿Desactivar la escala de frecuencias?";
+            metroLabel13.Text = "¿Desactivar la búsqueda de controladores?";
+            metroLabel40.Text = "¿Optimizar el estrangulamiento de la red?";
+            metroLabel41.Text = "¿Optimizar la capacidad de respuesta del sistema?";
+            metroLabel42.Text = "¿Desactivar las frecuencias de juego?";
+            metroLabel43.Text = "¿Activar Sin Retraso?";
+            metroLabel44.Text = "¿Desactivar Gaming Ticks?";
+            metroButton1.Text = "Aplicar optimizaciones";
+
+            groupBox2.Text = "Optimización de redes";
+            metroLabel24.Text = "¿Normalizar el ajuste automático del TCP?";
+            metroLabel25.Text = "¿Normalizar la heurística de escala?";
+            metroLabel26.Text = "¿Habilitar congestión CTCP?";
+            metroLabel27.Text = "¿Habilitar RSS y RSC?";
+            metroLabel28.Text = "¿Utilizar 64 horas de vida?";
+            metroLabel29.Text = "¿Desactivar las capacidades ECN?";
+            metroLabel30.Text = "¿Desactivar la descarga de sumas de comprobación?";
+            metroLabel31.Text = "¿Desactivar TCP Chimney Offload?";
+            metroLabel32.Text = "¿Desactivar la descarga de envíos grandes?";
+            metroLabel33.Text = "¿Desactivar marcas de tiempo TCP?";
+            metroLabel34.Text = "¿Fijar conexiones por servidor?";
+            metroLabel35.Text = "¿Arreglar las prioridades de los anfitriones?";
+            metroLabel36.Text = "¿Ajustar las retransmisiones?";
+            metroLabel37.Text = "¿Optimizar la calidad del servicio?";
+            metroLabel38.Text = "¿Ordenar las asignaciones de red?";
+            metroLabel39.Text = "¿Ajustar puertos dinámicos?";
+            metroButton3.Text = "Aplicar optimizaciones";
+
+            groupBox3.Text = "Información actual del sistema";
+            metroLabel14.Text = "Nombre del PC:";
+            metroLabel15.Text = "CPU:";
+            metroLabel16.Text = "GPU:";
+            metroLabel17.Text = "OS:";
+            metroLabel18.Text = "Tamaño de paginación:";
+
+            groupBox4.Text = "Optimizaciones de privacidad y seguimiento";
+            metroLabel45.Text = "¿Desactivar los servicios de localización?";
+            metroLabel46.Text = "¿Desactivar Diagnóstico?";
+            metroLabel47.Text = "¿Desactivar ID de publicidad?";
+            metroLabel48.Text = "¿Desactivar los datos de escritura?";
+            metroLabel49.Text = "¿Desactivar la introducción de datos?";
+            metroLabel50.Text = "¿Desactivar el seguimiento de aplicaciones?";
+            metroLabel51.Text = "¿Desactivar el historial de actividades?";
+            metroLabel52.Text = "¿Desactivar sugerencias?";
+            metroLabel53.Text = "¿Desactivar el historial del portapapeles?";
+            metroButton6.Text = "Aplicar optimizaciones";
+
+            metroLabel55.Text = "Versión 1.0 | Desarrollado por Alex Walker;
         }
         #endregion
 
