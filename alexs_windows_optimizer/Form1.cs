@@ -18,18 +18,23 @@ namespace alexs_windows_optimizer
             string language = "";
             try
             {
-                using (StreamWriter settings = new StreamWriter("awo.ini", false)) //do not append so that languages are saved
+                if (!File.Exists("awo.ini"))
                 {
-                    settings.WriteLine("Language=English");
+                    using (StreamWriter settings = new StreamWriter("awo.ini", false)) //do not append so that languages are saved
+                    {
+                        settings.WriteLine("Language=English");
+                    }
                 }
 
                 using (StreamReader lang = new StreamReader("awo.ini"))
                 {
-                    language = lang.ReadLine().Contains("English") ? "English" :
-                        lang.ReadLine().Contains("Español") ? "Español" :
-                        lang.ReadLine().Contains("Français") ? "Français" :
-                        "English"; //prevent bugs
+                    language = lang.ReadToEnd();
                 }
+
+                language = language.Contains("English") ? "English" :
+                    language.Contains("Français") ? "Français" :
+                    language.Contains("Español") ? "Español" :
+                    "English";
             }
             catch(Exception ex)
             {
@@ -103,7 +108,7 @@ namespace alexs_windows_optimizer
             {
                 o.disableAdvertID(metroToggle34.Checked);
                 o.disableDiagnostics(metroToggle35.Checked);
-                o.disableAdvertID(metroToggle36.Checked);
+                o.disableAdvertising(metroToggle36.Checked);
                 o.disableHandwriting(metroToggle37.Checked);
                 o.disableTypingTransmission(metroToggle38.Checked);
                 o.disableAppTracking(metroToggle39.Checked);
@@ -150,6 +155,167 @@ namespace alexs_windows_optimizer
             }
 
         }
+
+        private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string lang = metroComboBox1.SelectedIndex == 0 ? "English" :
+                    metroComboBox1.SelectedIndex == 1 ? "Español" :
+                    metroComboBox1.SelectedIndex == 2 ? "Français" :
+                    "English";
+
+                using (StreamWriter settings = new StreamWriter("awo.ini", false)) //do not append so that languages are saved
+                {
+                    settings.WriteLine("Language=" + lang);
+                }
+
+                changeLanguage(lang);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("These changes can impact your computer system!\nWould you like to proceed?", "Warning", MessageBoxButtons.YesNo);
+            if (msg == DialogResult.Yes)
+            {
+                o.gameBar(true);
+                o.windowsGameMode(true);
+                o.eventTimer(true);
+                o.ultimatePower(true);
+                o.performanceVisuals(true);
+                o.gpuScheduling(true);
+                o.notifications(true);
+                o.cpuParking(true);
+                o.cpuThrottling(true);
+                o.gamingFrequencies(true);
+                o.driverSearch(true);
+                o.networkThrottling(true);
+                o.systemResponsiveness(true);
+                o.noDelay(true);
+                o.delayTicks(true);
+
+                o.setTCPChimney(true);
+                o.setNetworkAllocations(true);
+                o.setTCPTuning(true);
+                o.setRSSandRSC(true);
+                o.setCongestion(true);
+                o.setTTL(true);
+                o.setECN(true);
+                o.setChimneyOffload(true);
+                o.setLargeOffload(true);
+                o.setTimestamps(true);
+                o.setPorts(true);
+                o.setHeuristics(true);
+                o.setMaxConnections(true);
+                o.setQoS(true);
+                o.setTransmissions(true);
+
+                o.disableAdvertID(true);
+                o.disableDiagnostics(true);
+                o.disableClipboardHistory(true);
+                o.disableUserActivity(true);
+                o.disableAppTracking(true);
+                o.disableTypingTransmission(true);
+
+                Application.Restart();
+                Environment.Exit(0);
+            }
+        }
+
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("These changes can impact your computer system!\nWould you like to proceed?", "Warning", MessageBoxButtons.YesNo);
+            if (msg == DialogResult.Yes)
+            {
+                o.windowsGameMode(false);
+                o.gameBar(false);
+                o.xboxLive(false);
+                o.eventTimer(false);
+                o.coreIsolation(false);
+                o.ultimatePower(false);
+                o.performanceVisuals(false);
+                o.gpuScheduling(false);
+                o.notifications(false);
+                o.cpuParking(false);
+                o.cpuThrottling(false);
+                o.networkThrottling(false);
+                o.driverSearch(false);
+                o.systemResponsiveness(false);
+                o.gamingFrequencies(false);
+                o.noDelay(false);
+                o.delayTicks(false);
+
+                o.setTCPChimney(false);
+                o.setTCPTuning(false);
+                o.setHeuristics(false);
+                o.setCongestion(false);
+                o.setRSSandRSC(false);
+                o.setTTL(false);
+                o.setECN(false);
+                o.setChimneyOffload(false);
+                o.setLargeOffload(false);
+                o.setTimestamps(false);
+                o.setMaxConnections(false);
+                o.setNetworkAllocations(false);
+                o.setHostPriorities(false);
+                o.setTransmissions(false);
+                o.setPorts(false);
+                o.setQoS(false);
+
+                o.disableAdvertID(false);
+                o.disableAdvertising(false);
+                o.disableAppTracking(false);
+                o.disableClipboardHistory(false);
+                o.disableDiagnostics(false);
+                o.disableHandwriting(false);
+                o.disableSuggestions(false);
+                o.disableTypingTransmission(false);
+                o.disableClipboardHistory(false);
+                o.disableUserActivity(false);
+
+                Application.Restart();
+                Environment.Exit(0);
+            }
+        }
+
+        #region update Text for Language
+        public void changeLanguage(string language)
+        {
+            if(language == "English")
+            {
+                changeToEnglish();
+            }
+            else if(language == "Español")
+            {
+                changeToFrench();
+            }
+            else if(language == "Français")
+            {
+                changeToSpanish();
+            }
+        }
+
+
+        public void changeToEnglish()
+        {
+
+        }
+
+        public void changeToFrench()
+        {
+
+        }
+
+        public void changeToSpanish()
+        {
+
+        }
+        #endregion
 
         #region updateToggles
         public void updateToggles()
@@ -403,11 +569,6 @@ namespace alexs_windows_optimizer
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/AlexW03x?tab=repositories");
-        }
-
-        private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void metroLabel19_Click(object sender, EventArgs e)

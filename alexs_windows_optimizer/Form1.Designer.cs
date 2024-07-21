@@ -1570,6 +1570,7 @@
             this.metroButton4.Size = new System.Drawing.Size(199, 29);
             this.metroButton4.TabIndex = 27;
             this.metroButton4.Text = "Use Recommended Settings?";
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
             // metroButton5
             // 
@@ -1578,6 +1579,7 @@
             this.metroButton5.Size = new System.Drawing.Size(202, 29);
             this.metroButton5.TabIndex = 28;
             this.metroButton5.Text = "Reset All Settings?";
+            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
             // 
             // metroLabel55
             // 
