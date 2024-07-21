@@ -1,25 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework.Components;
 using MetroFramework.Forms;
-using MetroFramework;
 using System.Management;
-using System.Security.Cryptography;
-using Microsoft.Win32;
-using System.Security.AccessControl;
 using System.Diagnostics;
 using System.IO;
-using System.Text.RegularExpressions;
-using System.Net.NetworkInformation;
-using System.Windows.Controls.Primitives;
-using System.CodeDom;
 
 namespace alexs_windows_optimizer
 { 
@@ -56,7 +40,121 @@ namespace alexs_windows_optimizer
             metroComboBox1.SelectedItem = language;
 
             //Showcase toggle settings from analysing current PC settings
-            metroToggle1.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\GameBar", "AllowAutoGameMode") == 1 && 
+            updateToggles();
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("These changes can impact your computer system!\nWould you like to proceed?", "Warning", MessageBoxButtons.YesNo);
+            if (msg == DialogResult.Yes)
+            {
+                o.windowsGameMode(metroToggle1.Checked);
+                o.gameBar(metroToggle2.Checked);
+                o.xboxLive(metroToggle3.Checked);
+                o.eventTimer(metroToggle4.Checked);
+                o.coreIsolation(metroToggle5.Checked);
+
+                o.ultimatePower(metroToggle6.Checked);
+                o.performanceVisuals(metroToggle7.Checked);
+                o.gpuScheduling(metroToggle8.Checked);
+                o.notifications(metroToggle9.Checked);
+                o.cpuParking(metroToggle10.Checked);
+
+                o.cpuThrottling(metroToggle11.Checked);
+                o.driverSearch(metroToggle12.Checked);
+                o.networkThrottling(metroToggle13.Checked);
+                o.systemResponsiveness(metroToggle14.Checked);
+                o.gamingFrequencies(metroToggle15.Checked);
+
+                o.noDelay(metroToggle16.Checked);
+                o.delayTicks(metroToggle17.Checked);
+            }
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("These changes can impact your computer system!\nWould you like to proceed?", "Warning", MessageBoxButtons.YesNo);
+            if (msg == DialogResult.Yes)
+            {
+                o.setTCPTuning(metroToggle18.Checked);
+                o.setHeuristics(metroToggle19.Checked);
+                o.setCongestion(metroToggle20.Checked);
+                o.setRSSandRSC(metroToggle21.Checked);
+                o.setTTL(metroToggle22.Checked);
+
+                o.setECN(metroToggle23.Checked);
+                o.setChimneyOffload(metroToggle24.Checked);
+                o.setTCPChimney(metroToggle25.Checked);
+                o.setLargeOffload(metroToggle26.Checked);
+                o.setTimestamps(metroToggle27.Checked);
+
+                o.setMaxConnections(metroToggle28.Checked);
+                o.setHostPriorities(metroToggle29.Checked);
+                o.setTransmissions(metroToggle30.Checked);
+                o.setQoS(metroToggle31.Checked);
+                o.setNetworkAllocations(metroToggle32.Checked);
+                o.setPorts(metroToggle33.Checked);
+            }
+        }
+        private void metroButton6_Click(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("These changes can impact your computer system!\nWould you like to proceed?", "Warning", MessageBoxButtons.YesNo);
+            if (msg == DialogResult.Yes)
+            {
+                o.disableAdvertID(metroToggle34.Checked);
+                o.disableDiagnostics(metroToggle35.Checked);
+                o.disableAdvertID(metroToggle36.Checked);
+                o.disableHandwriting(metroToggle37.Checked);
+                o.disableTypingTransmission(metroToggle38.Checked);
+                o.disableAppTracking(metroToggle39.Checked);
+                o.disableUserActivity(metroToggle40.Checked);
+                o.disableSuggestions(metroToggle41.Checked);
+            }
+        }
+        public void updatePCLabels(string r1, string r2, string r3, string r4, string r5)
+        {
+            metroLabel19.Text = r1;
+            metroLabel20.Text = r2;
+            metroLabel21.Text = r3;
+            metroLabel22.Text = r4;
+            metroLabel23.Text = r5;
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            DialogResult msg = MessageBox.Show("Are you sure you want to create a system restore point?", "Confirm Restore Point", MessageBoxButtons.YesNo);
+            if(msg == DialogResult.Yes)
+            {
+                try
+                {
+                    ManagementClass mngmt = new ManagementClass("\\\\.\\root\\default:SystemRestore");
+                    ManagementBaseObject obj = mngmt.GetMethodParameters("CreateRestorePoint");
+                    obj["Description"] = "AWO_RestorePoints_" + Convert.ToString(DateTime.Now);
+                    obj["RestorePointType"] = 12; //Settings
+                    obj["EventType"] = 100; //Changes to System
+
+                    ManagementBaseObject createRestore = mngmt.InvokeMethod("CreateRestorePoint", obj, null);
+                    if (Convert.ToInt16(createRestore.Properties["ReturnValue"].Value) != 0)
+                    {
+                        MessageBox.Show("Unable to create a system restore point!\nPlease try again or create one manually!", "Error!", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("System restore point created successfully!", "Success!", MessageBoxButtons.OK);
+                    }
+                }
+                catch(ManagementException ex)
+                {
+                    MessageBox.Show("Exception Occured!\nPlease try again or create a restore point manually!", "Error!", MessageBoxButtons.OK);
+                }
+            }
+
+        }
+
+        #region updateToggles
+        public void updateToggles()
+        {
+            metroToggle1.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\GameBar", "AllowAutoGameMode") == 1 &&
                 o.returnCurrentUserKeyValue(@"Software\Microsoft\GameBar", "AutoGameModeEnabled") == 1 ? true : false;
 
             metroToggle2.Checked = o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\GameDVR", "AllowGameDVR") == 0 &&
@@ -70,7 +168,7 @@ namespace alexs_windows_optimizer
                 Convert.ToInt16(o.returnLocalKeyValue(o.serviceLocation + "XboxNetApiSvc", "Start")) == 4 ? true : false;
 
             metroToggle4.Checked = o.returnCurrentUserKeyValue(@"Software\AWO_Optimizer", "eventTimerOn") == 0 ? true : false;
-            metroToggle5.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity", 
+            metroToggle5.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity",
                 "Enabled")) == 0 ? true : false;
             metroToggle6.Checked = o.executeCommandWithOutput(" powercfg /getactivescheme").ToString().Contains("Ultimate Performance") ? true : false;
 
@@ -81,12 +179,12 @@ namespace alexs_windows_optimizer
             metroToggle10.Checked = Convert.ToInt16(o.returnLocalKeyValue(
                 @"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583",
                  "Attributes")) == 0 && Convert.ToInt16(o.returnLocalKeyValue(
-                @"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583", 
+                @"SYSTEM\CurrentControlSet\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583",
                 "ValueMax")) == 0 ? true : false;
 
             metroToggle11.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Control\Power\PowerThrottling", "PowerThrottlingOff")) == 1 ? true : false;
             metroToggle12.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching", "SearchOrderConfig")) == 0 ? true : false;
-            metroToggle13.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile", 
+            metroToggle13.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile",
                 "NetworkThrottlingIndex")) == 0 ? true : false;
             metroToggle14.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile",
                 "SystemResponsiveness")) == 0 ? true : false;
@@ -128,105 +226,33 @@ namespace alexs_windows_optimizer
                 ? true : false;
             metroToggle33.Checked = Convert.ToInt32(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "MaxUserPort")) == 65534
                 && Convert.ToInt16(o.returnLocalKeyValue(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "TcpTimedWaitDelay")) == 30 ? true : false;
+            metroToggle34.Checked = Convert.ToInt16(o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled")) == 0 ?
+                true : false;
+            metroToggle35.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", "AllowTelemetry")) == 0 ?
+                true : false;
+            metroToggle36.Checked = Convert.ToInt16(o.returnCurrentUserKeyValue(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled")) == 0
+                && Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled")) == 0 ?
+                true : false;
+
+            metroToggle37.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"Software\Policies\Microsoft\Windows\TabletPC", "PreventHandwritingDataSharing")) == 1 ?
+                true : false;
+            metroToggle38.Checked = Convert.ToInt16(o.returnCurrentUserKeyValue(@"Software\Microsoft\Input\TIPC", "Enabled")) == 0 ? true : false;
+            metroToggle39.Checked = Convert.ToInt16(o.returnCurrentUserKeyValue(@"Software\Policies\Microsoft\Windows\EdgeUI", "DisableMFUTracking")) == 1 &&
+                Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Policies\Microsoft\Windows\EdgeUI", "DisableMFUTracking")) == 1 ? true : false;
+            metroToggle40.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Policies\Microsoft\Windows\System", "PublishUserActivities")) == 0 ? true : false;
+            metroToggle41.Checked = Convert.ToInt16(o.returnCurrentUserKeyValue(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                "SubscribedContent-338389Enabled")) == 0 && Convert.ToInt16(o.returnCurrentUserKeyValue(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                "SystemPaneSuggestionsEnabled")) == 0 && Convert.ToInt16(o.returnCurrentUserKeyValue(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager",
+                "SoftLandingEnabled")) == 0 ? true : false;
+            metroToggle42.Checked = Convert.ToInt16(o.returnLocalKeyValue(@"SOFTWARE\Policies\Microsoft\Windows\System", "AllowClipboardHistory")) == 0 ? true : false;
+
         }
+        #endregion
+
+        #region ALL GUI EMPTY FUNCTIONS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
-            DialogResult msg = MessageBox.Show("These changes can impact your computer system!\nWould you like to proceed?", "Warning", MessageBoxButtons.YesNo);
-            if (msg == DialogResult.Yes)
-            {
-                o.windowsGameMode(metroToggle1.Checked);
-                o.gameBar(metroToggle2.Checked);
-                o.xboxLive(metroToggle3.Checked);
-                o.eventTimer(metroToggle4.Checked);
-                o.coreIsolation(metroToggle5.Checked);
-
-                o.ultimatePower(metroToggle6.Checked);
-                o.performanceVisuals(metroToggle7.Checked);
-                o.gpuScheduling(metroToggle8.Checked);
-                o.notifications(metroToggle9.Checked);
-                o.cpuParking(metroToggle10.Checked);
-
-                o.cpuThrottling(metroToggle11.Checked);
-                o.driverSearch(metroToggle12.Checked);
-                o.networkThrottling(metroToggle13.Checked);
-                o.systemResponsiveness(metroToggle14.Checked);
-                o.gamingFrequencies(metroToggle15.Checked);
-
-                o.noDelay(metroToggle16.Checked);
-                o.delayTicks(metroToggle17.Checked);
-            }
-        }
-
-        private void metroButton3_Click(object sender, EventArgs e)
-        {
-            o.setTCPTuning(metroToggle18.Checked);
-            o.setHeuristics(metroToggle19.Checked);
-            o.setCongestion(metroToggle20.Checked);
-            o.setRSSandRSC(metroToggle21.Checked);
-            o.setTTL(metroToggle22.Checked);
-
-            o.setECN(metroToggle23.Checked);
-            o.setChimneyOffload(metroToggle24.Checked);
-            o.setTCPChimney(metroToggle25.Checked);
-            o.setLargeOffload(metroToggle26.Checked);
-            o.setTimestamps(metroToggle27.Checked);
-
-            o.setMaxConnections(metroToggle28.Checked);
-            o.setHostPriorities(metroToggle29.Checked);
-            o.setTransmissions(metroToggle30.Checked);
-            o.setQoS(metroToggle31.Checked);
-            o.setNetworkAllocations(metroToggle32.Checked);
-            o.setPorts(metroToggle33.Checked);
-        }
-
-        private void metroLabel19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void updatePCLabels(string r1, string r2, string r3, string r4, string r5)
-        {
-            metroLabel19.Text = r1;
-            metroLabel20.Text = r2;
-            metroLabel21.Text = r3;
-            metroLabel22.Text = r4;
-            metroLabel23.Text = r5;
-        }
-
-        private void metroButton2_Click(object sender, EventArgs e)
-        {
-            DialogResult msg = MessageBox.Show("Are you sure you want to create a system restore point?", "Confirm Restore Point", MessageBoxButtons.YesNo);
-            if(msg == DialogResult.Yes)
-            {
-                try
-                {
-                    ManagementClass mngmt = new ManagementClass("\\\\.\\root\\default:SystemRestore");
-                    ManagementBaseObject obj = mngmt.GetMethodParameters("CreateRestorePoint");
-                    obj["Description"] = "AWO_RestorePoints_" + Convert.ToString(DateTime.Now);
-                    obj["RestorePointType"] = 12; //Settings
-                    obj["EventType"] = 100; //Changes to System
-
-                    ManagementBaseObject createRestore = mngmt.InvokeMethod("CreateRestorePoint", obj, null);
-                    if (Convert.ToInt16(createRestore.Properties["ReturnValue"].Value) != 0)
-                    {
-                        MessageBox.Show("Unable to create a system restore point!\nPlease try again or create one manually!", "Error!", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        MessageBox.Show("System restore point created successfully!", "Success!", MessageBoxButtons.OK);
-                    }
-                }
-                catch(ManagementException ex)
-                {
-                    MessageBox.Show("Exception Occured!\nPlease try again or create a restore point manually!", "Error!", MessageBoxButtons.OK);
-                }
-            }
 
         }
 
@@ -383,5 +409,56 @@ namespace alexs_windows_optimizer
         {
 
         }
+
+        private void metroLabel19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle35_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle36_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle37_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle38_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle39_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle40_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle41_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroToggle42_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

@@ -113,29 +113,27 @@
             this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.metroToggle42 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle41 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle40 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle39 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle38 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle37 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle36 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle35 = new MetroFramework.Controls.MetroToggle();
+            this.metroToggle34 = new MetroFramework.Controls.MetroToggle();
+            this.metroButton6 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel53 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel52 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel51 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel50 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel49 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel48 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel47 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel46 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel45 = new MetroFramework.Controls.MetroLabel();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
-            this.metroLabel45 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel46 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel47 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel48 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel49 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel50 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel51 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel52 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel53 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel54 = new MetroFramework.Controls.MetroLabel();
-            this.metroButton6 = new MetroFramework.Controls.MetroButton();
-            this.metroToggle34 = new MetroFramework.Controls.MetroToggle();
-            this.metroToggle35 = new MetroFramework.Controls.MetroToggle();
-            this.metroToggle36 = new MetroFramework.Controls.MetroToggle();
-            this.metroToggle37 = new MetroFramework.Controls.MetroToggle();
-            this.metroToggle38 = new MetroFramework.Controls.MetroToggle();
-            this.metroToggle39 = new MetroFramework.Controls.MetroToggle();
-            this.metroToggle40 = new MetroFramework.Controls.MetroToggle();
-            this.metroToggle41 = new MetroFramework.Controls.MetroToggle();
-            this.metroToggle42 = new MetroFramework.Controls.MetroToggle();
-            this.metroToggle43 = new MetroFramework.Controls.MetroToggle();
             this.metroLabel55 = new MetroFramework.Controls.MetroLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
@@ -670,7 +668,9 @@
             this.metroComboBox1.Location = new System.Drawing.Point(111, 71);
             this.metroComboBox1.Name = "metroComboBox1";
             this.metroComboBox1.Size = new System.Drawing.Size(241, 29);
+            this.metroComboBox1.Style = MetroFramework.MetroColorStyle.White;
             this.metroComboBox1.TabIndex = 3;
+            this.metroComboBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroComboBox1.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
             // 
             // groupBox2
@@ -1292,7 +1292,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.metroToggle43);
             this.groupBox4.Controls.Add(this.metroToggle42);
             this.groupBox4.Controls.Add(this.metroToggle41);
             this.groupBox4.Controls.Add(this.metroToggle40);
@@ -1303,7 +1302,6 @@
             this.groupBox4.Controls.Add(this.metroToggle35);
             this.groupBox4.Controls.Add(this.metroToggle34);
             this.groupBox4.Controls.Add(this.metroButton6);
-            this.groupBox4.Controls.Add(this.metroLabel54);
             this.groupBox4.Controls.Add(this.metroLabel53);
             this.groupBox4.Controls.Add(this.metroLabel52);
             this.groupBox4.Controls.Add(this.metroLabel51);
@@ -1321,6 +1319,249 @@
             this.groupBox4.TabIndex = 26;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Privacy and Tracking Optimizations";
+            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // metroToggle42
+            // 
+            this.metroToggle42.AutoSize = true;
+            this.metroToggle42.Location = new System.Drawing.Point(329, 222);
+            this.metroToggle42.Name = "metroToggle42";
+            this.metroToggle42.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle42.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle42.TabIndex = 63;
+            this.metroToggle42.Text = "Off";
+            this.metroToggle42.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle42.UseStyleColors = true;
+            this.metroToggle42.UseVisualStyleBackColor = true;
+            this.metroToggle42.CheckedChanged += new System.EventHandler(this.metroToggle42_CheckedChanged);
+            // 
+            // metroToggle41
+            // 
+            this.metroToggle41.AutoSize = true;
+            this.metroToggle41.Location = new System.Drawing.Point(329, 198);
+            this.metroToggle41.Name = "metroToggle41";
+            this.metroToggle41.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle41.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle41.TabIndex = 62;
+            this.metroToggle41.Text = "Off";
+            this.metroToggle41.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle41.UseStyleColors = true;
+            this.metroToggle41.UseVisualStyleBackColor = true;
+            this.metroToggle41.CheckedChanged += new System.EventHandler(this.metroToggle41_CheckedChanged);
+            // 
+            // metroToggle40
+            // 
+            this.metroToggle40.AutoSize = true;
+            this.metroToggle40.Location = new System.Drawing.Point(329, 174);
+            this.metroToggle40.Name = "metroToggle40";
+            this.metroToggle40.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle40.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle40.TabIndex = 61;
+            this.metroToggle40.Text = "Off";
+            this.metroToggle40.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle40.UseStyleColors = true;
+            this.metroToggle40.UseVisualStyleBackColor = true;
+            this.metroToggle40.CheckedChanged += new System.EventHandler(this.metroToggle40_CheckedChanged);
+            // 
+            // metroToggle39
+            // 
+            this.metroToggle39.AutoSize = true;
+            this.metroToggle39.Location = new System.Drawing.Point(329, 150);
+            this.metroToggle39.Name = "metroToggle39";
+            this.metroToggle39.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle39.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle39.TabIndex = 60;
+            this.metroToggle39.Text = "Off";
+            this.metroToggle39.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle39.UseStyleColors = true;
+            this.metroToggle39.UseVisualStyleBackColor = true;
+            this.metroToggle39.CheckedChanged += new System.EventHandler(this.metroToggle39_CheckedChanged);
+            // 
+            // metroToggle38
+            // 
+            this.metroToggle38.AutoSize = true;
+            this.metroToggle38.Location = new System.Drawing.Point(329, 126);
+            this.metroToggle38.Name = "metroToggle38";
+            this.metroToggle38.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle38.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle38.TabIndex = 59;
+            this.metroToggle38.Text = "Off";
+            this.metroToggle38.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle38.UseStyleColors = true;
+            this.metroToggle38.UseVisualStyleBackColor = true;
+            this.metroToggle38.CheckedChanged += new System.EventHandler(this.metroToggle38_CheckedChanged);
+            // 
+            // metroToggle37
+            // 
+            this.metroToggle37.AutoSize = true;
+            this.metroToggle37.Location = new System.Drawing.Point(329, 102);
+            this.metroToggle37.Name = "metroToggle37";
+            this.metroToggle37.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle37.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle37.TabIndex = 58;
+            this.metroToggle37.Text = "Off";
+            this.metroToggle37.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle37.UseStyleColors = true;
+            this.metroToggle37.UseVisualStyleBackColor = true;
+            this.metroToggle37.CheckedChanged += new System.EventHandler(this.metroToggle37_CheckedChanged);
+            // 
+            // metroToggle36
+            // 
+            this.metroToggle36.AutoSize = true;
+            this.metroToggle36.Location = new System.Drawing.Point(329, 77);
+            this.metroToggle36.Name = "metroToggle36";
+            this.metroToggle36.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle36.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle36.TabIndex = 57;
+            this.metroToggle36.Text = "Off";
+            this.metroToggle36.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle36.UseStyleColors = true;
+            this.metroToggle36.UseVisualStyleBackColor = true;
+            this.metroToggle36.CheckedChanged += new System.EventHandler(this.metroToggle36_CheckedChanged);
+            // 
+            // metroToggle35
+            // 
+            this.metroToggle35.AutoSize = true;
+            this.metroToggle35.Location = new System.Drawing.Point(329, 52);
+            this.metroToggle35.Name = "metroToggle35";
+            this.metroToggle35.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle35.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle35.TabIndex = 56;
+            this.metroToggle35.Text = "Off";
+            this.metroToggle35.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle35.UseStyleColors = true;
+            this.metroToggle35.UseVisualStyleBackColor = true;
+            this.metroToggle35.CheckedChanged += new System.EventHandler(this.metroToggle35_CheckedChanged);
+            // 
+            // metroToggle34
+            // 
+            this.metroToggle34.AutoSize = true;
+            this.metroToggle34.Location = new System.Drawing.Point(329, 27);
+            this.metroToggle34.Name = "metroToggle34";
+            this.metroToggle34.Size = new System.Drawing.Size(80, 17);
+            this.metroToggle34.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroToggle34.TabIndex = 46;
+            this.metroToggle34.Text = "Off";
+            this.metroToggle34.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroToggle34.UseStyleColors = true;
+            this.metroToggle34.UseVisualStyleBackColor = true;
+            // 
+            // metroButton6
+            // 
+            this.metroButton6.Location = new System.Drawing.Point(129, 298);
+            this.metroButton6.Name = "metroButton6";
+            this.metroButton6.Size = new System.Drawing.Size(169, 31);
+            this.metroButton6.TabIndex = 46;
+            this.metroButton6.Text = "Apply Optimizations";
+            this.metroButton6.Click += new System.EventHandler(this.metroButton6_Click);
+            // 
+            // metroLabel53
+            // 
+            this.metroLabel53.AutoSize = true;
+            this.metroLabel53.Location = new System.Drawing.Point(14, 220);
+            this.metroLabel53.Name = "metroLabel53";
+            this.metroLabel53.Size = new System.Drawing.Size(164, 19);
+            this.metroLabel53.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel53.TabIndex = 54;
+            this.metroLabel53.Text = "Disable Clipboard History?";
+            this.metroLabel53.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel53.UseStyleColors = true;
+            // 
+            // metroLabel52
+            // 
+            this.metroLabel52.AutoSize = true;
+            this.metroLabel52.Location = new System.Drawing.Point(14, 196);
+            this.metroLabel52.Name = "metroLabel52";
+            this.metroLabel52.Size = new System.Drawing.Size(130, 19);
+            this.metroLabel52.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel52.TabIndex = 53;
+            this.metroLabel52.Text = "Disable Suggestions?";
+            this.metroLabel52.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel52.UseStyleColors = true;
+            // 
+            // metroLabel51
+            // 
+            this.metroLabel51.AutoSize = true;
+            this.metroLabel51.Location = new System.Drawing.Point(14, 172);
+            this.metroLabel51.Name = "metroLabel51";
+            this.metroLabel51.Size = new System.Drawing.Size(146, 19);
+            this.metroLabel51.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel51.TabIndex = 52;
+            this.metroLabel51.Text = "Disable Activity History?";
+            this.metroLabel51.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel51.UseStyleColors = true;
+            // 
+            // metroLabel50
+            // 
+            this.metroLabel50.AutoSize = true;
+            this.metroLabel50.Location = new System.Drawing.Point(14, 148);
+            this.metroLabel50.Name = "metroLabel50";
+            this.metroLabel50.Size = new System.Drawing.Size(158, 19);
+            this.metroLabel50.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel50.TabIndex = 51;
+            this.metroLabel50.Text = "Disable Tracking of Apps?";
+            this.metroLabel50.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel50.UseStyleColors = true;
+            // 
+            // metroLabel49
+            // 
+            this.metroLabel49.AutoSize = true;
+            this.metroLabel49.Location = new System.Drawing.Point(14, 124);
+            this.metroLabel49.Name = "metroLabel49";
+            this.metroLabel49.Size = new System.Drawing.Size(130, 19);
+            this.metroLabel49.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel49.TabIndex = 50;
+            this.metroLabel49.Text = "Disable Typing Data?";
+            this.metroLabel49.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel49.UseStyleColors = true;
+            // 
+            // metroLabel48
+            // 
+            this.metroLabel48.AutoSize = true;
+            this.metroLabel48.Location = new System.Drawing.Point(14, 100);
+            this.metroLabel48.Name = "metroLabel48";
+            this.metroLabel48.Size = new System.Drawing.Size(162, 19);
+            this.metroLabel48.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel48.TabIndex = 49;
+            this.metroLabel48.Text = "Disable Handwriting Data?";
+            this.metroLabel48.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel48.UseStyleColors = true;
+            // 
+            // metroLabel47
+            // 
+            this.metroLabel47.AutoSize = true;
+            this.metroLabel47.Location = new System.Drawing.Point(14, 75);
+            this.metroLabel47.Name = "metroLabel47";
+            this.metroLabel47.Size = new System.Drawing.Size(143, 19);
+            this.metroLabel47.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel47.TabIndex = 48;
+            this.metroLabel47.Text = "Disable Advertising ID?";
+            this.metroLabel47.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel47.UseStyleColors = true;
+            // 
+            // metroLabel46
+            // 
+            this.metroLabel46.AutoSize = true;
+            this.metroLabel46.Location = new System.Drawing.Point(14, 50);
+            this.metroLabel46.Name = "metroLabel46";
+            this.metroLabel46.Size = new System.Drawing.Size(126, 19);
+            this.metroLabel46.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel46.TabIndex = 47;
+            this.metroLabel46.Text = "Disable Diagnostics?";
+            this.metroLabel46.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel46.UseStyleColors = true;
+            // 
+            // metroLabel45
+            // 
+            this.metroLabel45.AutoSize = true;
+            this.metroLabel45.Location = new System.Drawing.Point(14, 25);
+            this.metroLabel45.Name = "metroLabel45";
+            this.metroLabel45.Size = new System.Drawing.Size(161, 19);
+            this.metroLabel45.Style = MetroFramework.MetroColorStyle.White;
+            this.metroLabel45.TabIndex = 46;
+            this.metroLabel45.Text = "Disable Location Services?";
+            this.metroLabel45.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroLabel45.UseStyleColors = true;
             // 
             // metroButton4
             // 
@@ -1337,264 +1578,6 @@
             this.metroButton5.Size = new System.Drawing.Size(202, 29);
             this.metroButton5.TabIndex = 28;
             this.metroButton5.Text = "Reset All Settings?";
-            // 
-            // metroLabel45
-            // 
-            this.metroLabel45.AutoSize = true;
-            this.metroLabel45.Location = new System.Drawing.Point(14, 25);
-            this.metroLabel45.Name = "metroLabel45";
-            this.metroLabel45.Size = new System.Drawing.Size(161, 19);
-            this.metroLabel45.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel45.TabIndex = 46;
-            this.metroLabel45.Text = "Disable Location Services?";
-            this.metroLabel45.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel45.UseStyleColors = true;
-            // 
-            // metroLabel46
-            // 
-            this.metroLabel46.AutoSize = true;
-            this.metroLabel46.Location = new System.Drawing.Point(14, 50);
-            this.metroLabel46.Name = "metroLabel46";
-            this.metroLabel46.Size = new System.Drawing.Size(126, 19);
-            this.metroLabel46.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel46.TabIndex = 47;
-            this.metroLabel46.Text = "Disable Diagnostics?";
-            this.metroLabel46.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel46.UseStyleColors = true;
-            // 
-            // metroLabel47
-            // 
-            this.metroLabel47.AutoSize = true;
-            this.metroLabel47.Location = new System.Drawing.Point(14, 75);
-            this.metroLabel47.Name = "metroLabel47";
-            this.metroLabel47.Size = new System.Drawing.Size(143, 19);
-            this.metroLabel47.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel47.TabIndex = 48;
-            this.metroLabel47.Text = "Disable Advertising ID?";
-            this.metroLabel47.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel47.UseStyleColors = true;
-            // 
-            // metroLabel48
-            // 
-            this.metroLabel48.AutoSize = true;
-            this.metroLabel48.Location = new System.Drawing.Point(14, 100);
-            this.metroLabel48.Name = "metroLabel48";
-            this.metroLabel48.Size = new System.Drawing.Size(162, 19);
-            this.metroLabel48.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel48.TabIndex = 49;
-            this.metroLabel48.Text = "Disable Handwriting Data?";
-            this.metroLabel48.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel48.UseStyleColors = true;
-            // 
-            // metroLabel49
-            // 
-            this.metroLabel49.AutoSize = true;
-            this.metroLabel49.Location = new System.Drawing.Point(14, 124);
-            this.metroLabel49.Name = "metroLabel49";
-            this.metroLabel49.Size = new System.Drawing.Size(130, 19);
-            this.metroLabel49.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel49.TabIndex = 50;
-            this.metroLabel49.Text = "Disable Typing Data?";
-            this.metroLabel49.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel49.UseStyleColors = true;
-            // 
-            // metroLabel50
-            // 
-            this.metroLabel50.AutoSize = true;
-            this.metroLabel50.Location = new System.Drawing.Point(14, 148);
-            this.metroLabel50.Name = "metroLabel50";
-            this.metroLabel50.Size = new System.Drawing.Size(158, 19);
-            this.metroLabel50.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel50.TabIndex = 51;
-            this.metroLabel50.Text = "Disable Tracking of Apps?";
-            this.metroLabel50.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel50.UseStyleColors = true;
-            // 
-            // metroLabel51
-            // 
-            this.metroLabel51.AutoSize = true;
-            this.metroLabel51.Location = new System.Drawing.Point(14, 172);
-            this.metroLabel51.Name = "metroLabel51";
-            this.metroLabel51.Size = new System.Drawing.Size(146, 19);
-            this.metroLabel51.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel51.TabIndex = 52;
-            this.metroLabel51.Text = "Disable Activity History?";
-            this.metroLabel51.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel51.UseStyleColors = true;
-            // 
-            // metroLabel52
-            // 
-            this.metroLabel52.AutoSize = true;
-            this.metroLabel52.Location = new System.Drawing.Point(14, 196);
-            this.metroLabel52.Name = "metroLabel52";
-            this.metroLabel52.Size = new System.Drawing.Size(130, 19);
-            this.metroLabel52.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel52.TabIndex = 53;
-            this.metroLabel52.Text = "Disable Suggestions?";
-            this.metroLabel52.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel52.UseStyleColors = true;
-            // 
-            // metroLabel53
-            // 
-            this.metroLabel53.AutoSize = true;
-            this.metroLabel53.Location = new System.Drawing.Point(14, 220);
-            this.metroLabel53.Name = "metroLabel53";
-            this.metroLabel53.Size = new System.Drawing.Size(164, 19);
-            this.metroLabel53.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel53.TabIndex = 54;
-            this.metroLabel53.Text = "Disable Clipboard History?";
-            this.metroLabel53.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel53.UseStyleColors = true;
-            // 
-            // metroLabel54
-            // 
-            this.metroLabel54.AutoSize = true;
-            this.metroLabel54.Location = new System.Drawing.Point(14, 244);
-            this.metroLabel54.Name = "metroLabel54";
-            this.metroLabel54.Size = new System.Drawing.Size(139, 19);
-            this.metroLabel54.Style = MetroFramework.MetroColorStyle.White;
-            this.metroLabel54.TabIndex = 55;
-            this.metroLabel54.Text = "Disable Web Tracking?";
-            this.metroLabel54.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroLabel54.UseStyleColors = true;
-            // 
-            // metroButton6
-            // 
-            this.metroButton6.Location = new System.Drawing.Point(129, 298);
-            this.metroButton6.Name = "metroButton6";
-            this.metroButton6.Size = new System.Drawing.Size(169, 31);
-            this.metroButton6.TabIndex = 46;
-            this.metroButton6.Text = "Apply Optimizations";
-            // 
-            // metroToggle34
-            // 
-            this.metroToggle34.AutoSize = true;
-            this.metroToggle34.Location = new System.Drawing.Point(329, 27);
-            this.metroToggle34.Name = "metroToggle34";
-            this.metroToggle34.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle34.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle34.TabIndex = 46;
-            this.metroToggle34.Text = "Off";
-            this.metroToggle34.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle34.UseStyleColors = true;
-            this.metroToggle34.UseVisualStyleBackColor = true;
-            // 
-            // metroToggle35
-            // 
-            this.metroToggle35.AutoSize = true;
-            this.metroToggle35.Location = new System.Drawing.Point(329, 52);
-            this.metroToggle35.Name = "metroToggle35";
-            this.metroToggle35.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle35.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle35.TabIndex = 56;
-            this.metroToggle35.Text = "Off";
-            this.metroToggle35.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle35.UseStyleColors = true;
-            this.metroToggle35.UseVisualStyleBackColor = true;
-            // 
-            // metroToggle36
-            // 
-            this.metroToggle36.AutoSize = true;
-            this.metroToggle36.Location = new System.Drawing.Point(329, 77);
-            this.metroToggle36.Name = "metroToggle36";
-            this.metroToggle36.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle36.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle36.TabIndex = 57;
-            this.metroToggle36.Text = "Off";
-            this.metroToggle36.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle36.UseStyleColors = true;
-            this.metroToggle36.UseVisualStyleBackColor = true;
-            // 
-            // metroToggle37
-            // 
-            this.metroToggle37.AutoSize = true;
-            this.metroToggle37.Location = new System.Drawing.Point(329, 102);
-            this.metroToggle37.Name = "metroToggle37";
-            this.metroToggle37.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle37.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle37.TabIndex = 58;
-            this.metroToggle37.Text = "Off";
-            this.metroToggle37.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle37.UseStyleColors = true;
-            this.metroToggle37.UseVisualStyleBackColor = true;
-            // 
-            // metroToggle38
-            // 
-            this.metroToggle38.AutoSize = true;
-            this.metroToggle38.Location = new System.Drawing.Point(329, 126);
-            this.metroToggle38.Name = "metroToggle38";
-            this.metroToggle38.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle38.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle38.TabIndex = 59;
-            this.metroToggle38.Text = "Off";
-            this.metroToggle38.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle38.UseStyleColors = true;
-            this.metroToggle38.UseVisualStyleBackColor = true;
-            // 
-            // metroToggle39
-            // 
-            this.metroToggle39.AutoSize = true;
-            this.metroToggle39.Location = new System.Drawing.Point(329, 150);
-            this.metroToggle39.Name = "metroToggle39";
-            this.metroToggle39.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle39.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle39.TabIndex = 60;
-            this.metroToggle39.Text = "Off";
-            this.metroToggle39.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle39.UseStyleColors = true;
-            this.metroToggle39.UseVisualStyleBackColor = true;
-            // 
-            // metroToggle40
-            // 
-            this.metroToggle40.AutoSize = true;
-            this.metroToggle40.Location = new System.Drawing.Point(329, 174);
-            this.metroToggle40.Name = "metroToggle40";
-            this.metroToggle40.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle40.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle40.TabIndex = 61;
-            this.metroToggle40.Text = "Off";
-            this.metroToggle40.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle40.UseStyleColors = true;
-            this.metroToggle40.UseVisualStyleBackColor = true;
-            // 
-            // metroToggle41
-            // 
-            this.metroToggle41.AutoSize = true;
-            this.metroToggle41.Location = new System.Drawing.Point(329, 198);
-            this.metroToggle41.Name = "metroToggle41";
-            this.metroToggle41.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle41.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle41.TabIndex = 62;
-            this.metroToggle41.Text = "Off";
-            this.metroToggle41.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle41.UseStyleColors = true;
-            this.metroToggle41.UseVisualStyleBackColor = true;
-            // 
-            // metroToggle42
-            // 
-            this.metroToggle42.AutoSize = true;
-            this.metroToggle42.Location = new System.Drawing.Point(329, 222);
-            this.metroToggle42.Name = "metroToggle42";
-            this.metroToggle42.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle42.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle42.TabIndex = 63;
-            this.metroToggle42.Text = "Off";
-            this.metroToggle42.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle42.UseStyleColors = true;
-            this.metroToggle42.UseVisualStyleBackColor = true;
-            // 
-            // metroToggle43
-            // 
-            this.metroToggle43.AutoSize = true;
-            this.metroToggle43.Location = new System.Drawing.Point(329, 246);
-            this.metroToggle43.Name = "metroToggle43";
-            this.metroToggle43.Size = new System.Drawing.Size(80, 17);
-            this.metroToggle43.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroToggle43.TabIndex = 64;
-            this.metroToggle43.Text = "Off";
-            this.metroToggle43.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroToggle43.UseStyleColors = true;
-            this.metroToggle43.UseVisualStyleBackColor = true;
             // 
             // metroLabel55
             // 
@@ -1747,7 +1730,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel47;
         private MetroFramework.Controls.MetroLabel metroLabel46;
         private MetroFramework.Controls.MetroLabel metroLabel45;
-        private MetroFramework.Controls.MetroLabel metroLabel54;
         private MetroFramework.Controls.MetroLabel metroLabel53;
         private MetroFramework.Controls.MetroLabel metroLabel52;
         private MetroFramework.Controls.MetroLabel metroLabel51;
@@ -1755,7 +1737,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel49;
         private MetroFramework.Controls.MetroLabel metroLabel48;
         private MetroFramework.Controls.MetroButton metroButton6;
-        private MetroFramework.Controls.MetroToggle metroToggle43;
         private MetroFramework.Controls.MetroToggle metroToggle42;
         private MetroFramework.Controls.MetroToggle metroToggle41;
         private MetroFramework.Controls.MetroToggle metroToggle40;

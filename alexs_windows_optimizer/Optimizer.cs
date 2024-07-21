@@ -1,25 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework.Components;
-using MetroFramework.Forms;
-using MetroFramework;
 using System.Management;
-using System.Security.Cryptography;
 using Microsoft.Win32;
-using System.Security.AccessControl;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Net.NetworkInformation;
-using System.Windows.Controls.Primitives;
-using System.CodeDom;
 
 namespace alexs_windows_optimizer
 {
@@ -561,6 +548,101 @@ namespace alexs_windows_optimizer
                 setRegisterLM(@"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters", "TcpTimedWaitDelay",
                     toggle == true ? 30 : 30, RegistryValueKind.DWord);
             }
+
+            public void disableAdvertID(bool toggle)
+            {
+                setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled",
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void disableDiagnostics(bool toggle)
+            {
+                setRegisterLM(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", "AllowTelemetry",
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void disableAdvertising(bool toggle)
+            {
+                setRegisterCU(@"Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled",
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+                setRegisterLM(@"SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo", "Enabled",
+                    toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void disableHandwriting(bool toggle)
+            {
+                try
+                {
+                    using (RegistryKey key = Registry.LocalMachine.CreateSubKey(@"Software\Policies\Microsoft\Windows\TabletPC", true))
+                    {
+                        if(key != null)
+                        {
+
+                        }
+                        key.SetValue("PreventHandwritingDataSharing", toggle == true ? 1 : 0, RegistryValueKind.DWord);
+                    }
+                }
+                catch(Exception e)
+                {
+
+                }
+            }
+
+            public void disableTypingTransmission(bool toggle)
+            {
+                setRegisterCU(@"Software\Microsoft\Input\TIPC", "Enabled",
+                toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            }
+
+            public void disableAppTracking(bool toggle)
+            {
+                try
+                {
+                    using (RegistryKey key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Policies\Microsoft\Windows\EdgeUI", true))
+                    {
+                        if(key != null)
+                        {
+
+                        }
+                        key.SetValue("DisableMFUTracking", toggle == true ? 1 : 0, RegistryValueKind.DWord);
+                    }
+
+                    using (RegistryKey key = Registry.CurrentUser.CreateSubKey(@"Software\Policies\Microsoft\Windows\EdgeUI", true))
+                    {
+                        if(key != null)
+                        {
+                            
+                        }
+                        key.SetValue("DisableMFUTracking", toggle == true ? 1 : 0, RegistryValueKind.DWord);
+                    }
+                }
+                catch(Exception ex)
+                {
+
+                }
+            }
+
+        public void disableUserActivity(bool toggle)
+        {
+            setRegisterLM(@"SOFTWARE\Policies\Microsoft\Windows\System", "PublishUserActivities",
+                toggle == true ? 0 : 1, RegistryValueKind.DWord);
+        }
+
+        public void disableSuggestions(bool toggle)
+        {
+            setRegisterCU(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SubscribedContent-338389Enabled",
+                toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            setRegisterCU(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SystemPaneSuggestionsEnabled",
+                toggle == true ? 0 : 1, RegistryValueKind.DWord);
+            setRegisterCU(@"SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager", "SoftLandingEnabled",
+                toggle == true ? 0 : 1, RegistryValueKind.DWord);
+        }
+
+        public void disableClipboardHistory(bool toggle)
+        {
+            setRegisterLM(@"SOFTWARE\Policies\Microsoft\Windows\System", "AllowClipboardHistory",
+                toggle == true ? 0 : 1, RegistryValueKind.DWord);
+        }
 
             public void setRegisterCU(string path, string name, object value, RegistryValueKind type) //setting current user registry
             {
