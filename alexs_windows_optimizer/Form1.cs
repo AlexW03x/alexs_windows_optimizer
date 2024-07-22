@@ -507,7 +507,7 @@ namespace alexs_windows_optimizer
             metroLabel53.Text = "¿Desactivar el historial del portapapeles?";
             metroButton6.Text = "Aplicar optimizaciones";
 
-            metroLabel55.Text = "Versión 1.0 | Desarrollado por Alex Walker;
+            metroLabel55.Text = "Versión 1.0 | Desarrollado por Alex Walker";
         }
         #endregion
 
